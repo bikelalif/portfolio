@@ -1,0 +1,101 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage[margin=1cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{parskip}
+
+% Couleurs
+\definecolor{primary}{RGB}{30, 64, 175}
+\definecolor{secondary}{RGB}{71, 85, 105}
+\definecolor{accent}{RGB}{37, 99, 235}
+
+% Hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent
+}
+
+% Style des sections
+\titleformat{\section}{\Large\bfseries\color{primary}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{5pt}
+
+% Pas de numéros de page
+\pagestyle{empty}
+
+\begin{document}
+
+% En-tête
+\begin{center}
+    {\Huge\bfseries\color{primary} Bilal KEFIF}\\[5pt]
+    {\large\color{secondary} Étudiant Ingénieur en Génie Logiciel}\\[10pt]
+    \faMapMarker*\ Paris, France \quad
+    \faPhone\ 06.22.39.22.30 \quad
+    \faEnvelope\ \href{mailto:bilalkefif243@gmail.com}{bilalkefif243@gmail.com}\\[5pt]
+    \faGithub\ \href{https://github.com/bikelalif}{github.com/bikelalif} \quad
+    \faLinkedin\ \href{https://www.linkedin.com/in/bilal-kefif-94400015a}{linkedin.com/in/bilal-kefif-94400015a} \quad
+    \faGlobe\ \href{https://portfoliobilalkefif.netlify.app}{portfoliobilalkefif.netlify.app}
+\end{center}
+
+\section{Profil}
+Étudiant en 2ème année à l'ENSIIE, spécialisé en génie logiciel (architecture logicielle, méthodes formelles, sécurité). Je m'oriente vers la \textbf{cybersécurité} dès le semestre prochain et recherche un \textbf{stage dans ce domaine}. Dynamique, rigoureux et créatif, je m'adapte rapidement aux situations.
+
+\section{Formation}
+
+\textbf{\color{primary}Université Laval} -- Québec, Canada\\
+\textit{Janvier -- Mai 2026}\\
+Maîtrise en informatique, option Cybersécurité (échange international)
+
+\vspace{5pt}
+\textbf{\color{primary}ENSIIE} -- École Nationale Supérieure d'Informatique pour l'Industrie et l'Entreprise\\
+\textit{Évry $\cdot$ 2024 -- En cours}\\
+Diplôme d'ingénieur en Génie Logiciel : architecture logicielle, programmation avancée, méthodes formelles, sécurité du numérique
+
+\vspace{5pt}
+\textbf{\color{primary}CPGE -- Lycée Albert Schweitzer}\\
+\textit{Le Raincy $\cdot$ 2021 -- 2024}\\
+Classes Préparatoires aux Grandes Écoles, Filière Physique-Chimie
+
+\vspace{5pt}
+\textbf{\color{primary}Lycée Honoré de Balzac}\\
+\textit{Mitry-Mory $\cdot$ 2018 -- 2021}\\
+Baccalauréat général, spécialités Physique-Chimie et Mathématiques
+
+\section{Stage}
+
+\textbf{\color{primary}idIA Tech -- Développeur logiciel}\\
+\textit{Montpezat $\cdot$ Mai -- Août 2025}
+\begin{itemize}[leftmargin=*, itemsep=1pt, parsep=0pt, topsep=2pt]
+    \item Développement de scripts Grimport (Groovy/Java) pour automatiser l'import de catalogues fournisseurs dans des CMS e-commerce
+    \item Rétro-ingénierie de sites web sources, extraction et transformation de données (web mining)
+    \item Remise en état du débogueur de l'IDE Grimport : correction de code, intégration manuelle de dépendances, configuration Gradle/Eclipse
+\end{itemize}
+
+\section{Projets \href{https://portfoliobilalkefif.netlify.app}{\normalfont\small\color{accent}(détails dans le portfolio)}}
+
+\begin{itemize}[leftmargin=*, itemsep=1pt, parsep=0pt]
+    \item \textbf{BiLOCAL} \textit{(React, Flask)} -- Réservation d'espaces de coworking
+    \item \textbf{PharmaPlan} \textit{(Python, PyQt5)} -- Gestion de planning pour pharmacies
+    \item \textbf{Sevent} \textit{(Java, JavaFX)} -- Plateforme de gestion d'événements étudiants
+    \item \textbf{Expressions JavaFX} \textit{(Java)} -- Évaluateur d'expressions mathématiques
+    \item \textbf{Éditeur OCaml} \textit{(OCaml)} -- Éditeur de texte avec gestion de buffers
+    \item \textbf{Jeu de Cartes} \textit{(C)} -- Jeu de cartes en ligne de commande
+\end{itemize}
+
+\section{Compétences}
+
+\textbf{Langages :} Python, Java, C, JavaScript, TypeScript, SQL, HTML/CSS, PHP, OCaml, Groovy \quad
+\textbf{Frameworks :} React, Flask, JavaFX, PyQt5 \quad
+\textbf{Outils :} Git, Docker, VS Code, Gradle \quad
+\textbf{BDD :} SQLite, PostgreSQL, MySQL
+
+\section{Langues \& Loisirs}
+\textbf{Français :} Langue maternelle \quad \textbf{Anglais :} Niveau avancé \quad\quad \textbf{Loisirs :} Formule 1, Football, Voyages
+
+\end{document}

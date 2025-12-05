@@ -1,0 +1,101 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[margin=1cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{parskip}
+
+% Colors
+\definecolor{primary}{RGB}{30, 64, 175}
+\definecolor{secondary}{RGB}{71, 85, 105}
+\definecolor{accent}{RGB}{37, 99, 235}
+
+% Hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent
+}
+
+% Section style
+\titleformat{\section}{\Large\bfseries\color{primary}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{5pt}
+
+% No page numbers
+\pagestyle{empty}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge\bfseries\color{primary} Bilal KEFIF}\\[5pt]
+    {\large\color{secondary} Software Engineering Student}\\[10pt]
+    \faMapMarker*\ Paris, France \quad
+    \faPhone\ +33 6 22 39 22 30 \quad
+    \faEnvelope\ \href{mailto:bilalkefif243@gmail.com}{bilalkefif243@gmail.com}\\[5pt]
+    \faGithub\ \href{https://github.com/bikelalif}{github.com/bikelalif} \quad
+    \faLinkedin\ \href{https://www.linkedin.com/in/bilal-kefif-94400015a}{linkedin.com/in/bilal-kefif-94400015a} \quad
+    \faGlobe\ \href{https://portfoliobilalkefif.netlify.app}{portfoliobilalkefif.netlify.app}
+\end{center}
+
+\section{Profile}
+Second-year student at ENSIIE, specializing in software engineering (software architecture, formal methods, security). Transitioning to \textbf{cybersecurity} next semester and seeking an \textbf{internship in this field}. Dynamic, rigorous, and creative, I adapt quickly to new situations.
+
+\section{Education}
+
+\textbf{\color{primary}Université Laval} -- Quebec, Canada\\
+\textit{January -- May 2026}\\
+Master's in Computer Science, Cybersecurity specialization (international exchange)
+
+\vspace{5pt}
+\textbf{\color{primary}ENSIIE} -- National School of Computer Science for Industry and Business\\
+\textit{Évry, France $\cdot$ 2024 -- Present}\\
+Engineering Degree in Software Engineering: software architecture, advanced programming, formal methods, digital security
+
+\vspace{5pt}
+\textbf{\color{primary}Preparatory Classes -- Lycée Albert Schweitzer}\\
+\textit{Le Raincy, France $\cdot$ 2021 -- 2024}\\
+Intensive preparation for French engineering schools (Physics-Chemistry track)
+
+\vspace{5pt}
+\textbf{\color{primary}Lycée Honoré de Balzac}\\
+\textit{Mitry-Mory, France $\cdot$ 2018 -- 2021}\\
+French Baccalaureate, Physics-Chemistry and Mathematics specializations
+
+\section{Internship}
+
+\textbf{\color{primary}idIA Tech -- Software Developer}\\
+\textit{Montpezat, France $\cdot$ May -- August 2025}
+\begin{itemize}[leftmargin=*, itemsep=1pt, parsep=0pt, topsep=2pt]
+    \item Development of Grimport scripts (Groovy/Java) to automate supplier catalog imports into e-commerce CMS
+    \item Website reverse engineering, data extraction and transformation (web mining)
+    \item Restoration of the Grimport IDE debugger: code fixes, manual dependency integration, Gradle/Eclipse configuration
+\end{itemize}
+
+\section{Projects \href{https://portfoliobilalkefif.netlify.app}{\normalfont\small\color{accent}(details in portfolio)}}
+
+\begin{itemize}[leftmargin=*, itemsep=1pt, parsep=0pt]
+    \item \textbf{BiLOCAL} \textit{(React, Flask)} -- Coworking space booking application
+    \item \textbf{PharmaPlan} \textit{(Python, PyQt5)} -- Pharmacy schedule management
+    \item \textbf{Sevent} \textit{(Java, JavaFX)} -- Student event management platform
+    \item \textbf{JavaFX Expressions} \textit{(Java)} -- Mathematical expression evaluator
+    \item \textbf{OCaml Editor} \textit{(OCaml)} -- Text editor with buffer management
+    \item \textbf{Card Game} \textit{(C)} -- Command-line card game
+\end{itemize}
+
+\section{Skills}
+
+\textbf{Languages:} Python, Java, C, JavaScript, TypeScript, SQL, HTML/CSS, PHP, OCaml, Groovy \quad
+\textbf{Frameworks:} React, Flask, JavaFX, PyQt5 \quad
+\textbf{Tools:} Git, Docker, VS Code, Gradle \quad
+\textbf{DB:} SQLite, PostgreSQL, MySQL
+
+\section{Languages \& Interests}
+\textbf{French:} Native \quad \textbf{English:} Advanced \quad\quad \textbf{Interests:} Formula 1, Football, Travel
+
+\end{document}

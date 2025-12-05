@@ -1,4 +1,4 @@
-import { Briefcase, X, Calendar, MapPin, CheckCircle } from 'lucide-react';
+import { Briefcase, X, Calendar, MapPin, CheckCircle, FileText } from 'lucide-react';
 import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
@@ -9,24 +9,25 @@ export function Experience() {
     {
       title: "Stagiaire Développeur",
       company: "idIA tech",
-      period: "Juin - Juillet 2025",
+      period: "Mai - Août 2025",
       location: "Montpezat, France",
       description: "Développement de scripts clients et amélioration de l'IDE Grimport pour l'extraction automatisée de données e-commerce.",
       image: "/idiatech_logo.png",
       tasks: [
-        "Développement de scripts d'extraction de données (web scraping)",
+        "Développement de scripts Grimport (Groovy/Java) pour automatiser l'import de catalogues fournisseurs",
+        "Rétro-ingénierie de sites web sources, extraction et transformation de données (web mining)",
         "Contournement de Captchas et gestion des cookies de session",
         "Intégration d'APIs externes (OpenAI, antiCaptcha)",
         "Analyse réseau avec Fiddler pour déboguer les requêtes HTTP",
-        "Amélioration du débogueur de l'IDE Grimport",
-        "Résolution de dépendances Maven/Groovy"
+        "Remise en état du débogueur de l'IDE Grimport (correction de code, dépendances, Gradle/Eclipse)"
       ],
-      technologies: ["Groovy", "Java", "Grimport IDE", "Fiddler", "APIs REST", "Maven"],
+      technologies: ["Groovy", "Java", "Grimport IDE", "Fiddler", "APIs REST", "Maven", "Gradle"],
       achievements: [
         "Scripts clients livrés et fonctionnels",
         "Amélioration significative du débogueur IDE",
         "Rapport de stage complet avec documentation technique"
-      ]
+      ],
+      reportUrl: "/rapport_stage.pdf"
     }
   ];
 
@@ -136,6 +137,20 @@ export function Experience() {
                   ))}
                 </div>
               </div>
+
+              {experiences[selectedExperience].reportUrl && (
+                <div className="pt-4 border-t border-slate-600/50">
+                  <a
+                    href={experiences[selectedExperience].reportUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600 text-white px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <FileText className="w-5 h-5" />
+                    <span>Voir le rapport de stage</span>
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
