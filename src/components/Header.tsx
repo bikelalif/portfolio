@@ -17,7 +17,7 @@ export function Header() {
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
               <MapPin className="w-4 h-4" />
-              <span>Villeparisis, France</span>
+              <span>Paris, France</span>
             </div>
             <a 
               href="https://fr.linkedin.com/in/bilal-kefif-94400015a" 

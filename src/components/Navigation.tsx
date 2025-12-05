@@ -1,4 +1,4 @@
-import { User, GraduationCap, Briefcase, Code, FolderGit2, Mail, Heart } from 'lucide-react';
+import { User, GraduationCap, Briefcase, Code, FolderGit2, Mail } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export function Navigation() {
@@ -10,7 +10,6 @@ export function Navigation() {
     { id: 'experience', label: 'Expérience', icon: Briefcase },
     { id: 'skills', label: 'Compétences', icon: Code },
     { id: 'portfolio', label: 'Projets', icon: FolderGit2 },
-    { id: 'hobbies', label: 'Loisirs', icon: Heart },
     { id: 'contact', label: 'Contact', icon: Mail }
   ];
 

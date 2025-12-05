@@ -27,11 +27,7 @@ const projectsData: Record<string, {
 }> = {
   "sevent-gestion-evenements": {
     title: "SEvent - Gestion d'Événements",
-    full_description: `SEvent est une application web complète permettant de gérer, visualiser et filtrer des événements à venir (concerts, sport, culture, etc.).
-
-Les événements sont stockés dans une base SQLite et importés depuis des fichiers JSON. L'application propose une interface moderne avec tri automatique par date, filtres par catégorie et un système d'authentification complet.
-
-Les utilisateurs peuvent créer un compte, ajouter des événements à leurs favoris et gérer leur agenda personnel.`,
+    full_description: "SEvent est une application web complète permettant de gérer, visualiser et filtrer des événements à venir (concerts, sport, culture, etc.).\n\nLes événements sont stockés dans une base SQLite et importés depuis des fichiers JSON. L'application propose une interface moderne avec tri automatique par date, filtres par catégorie et un système d'authentification complet.\n\nLes utilisateurs peuvent créer un compte, ajouter des événements à leurs favoris et gérer leur agenda personnel.",
     image: "/sevent_logo.png",
     images: ["/sevent_logo.png"],
     tags: ["Python", "Flask", "SQLite", "HTML/CSS"],
@@ -49,21 +45,15 @@ Les utilisateurs peuvent créer un compte, ajouter des événements à leurs fav
       "Sécurisation de l'authentification",
       "Optimisation des requêtes SQLite"
     ],
-    github: "https://github.com/bikelalif",
+    github: "https://github.com/bikelalif/SEvent",
     demo: "http://localhost:5002",
     date: "2024-2025"
   },
   "bilocal-gestion-bureaux": {
     title: "BiLOCAL - Gestion de Bilocalisation",
-    full_description: `BiLOCAL est un logiciel de gestion de bilocalisation développé dans le cadre du cours GELO à l'ENSIIE.
-
-Le projet simule la gestion de bureaux pour une école d'ingénieur répartie sur deux sites. Il implémente plusieurs patrons de conception :
-- **Patron Stratégie** : 3 stratégies différentes pour "rendre un bureau"
-- **Patron Observer (Publier/Souscrire)** : Notification des employés lors des changements
-
-Le système gère les places fixes, les places de passage et leurs affectations.`,
-    image: "/bilocal_uml.png",
-    images: ["/bilocal_uml.png"],
+    full_description: "BiLOCAL est un logiciel de gestion de bilocalisation développé dans le cadre du cours GELO à l'ENSIIE.\n\nLe projet simule la gestion de bureaux pour une école d'ingénieur répartie sur deux sites. Il implémente plusieurs patrons de conception : Patron Stratégie (3 stratégies différentes pour rendre un bureau) et Patron Observer (Notification des employés lors des changements).\n\nLe système gère les places fixes, les places de passage et leurs affectations.",
+    image: "/bilocal.png",
+    images: ["/bilocal.png", "/bilocal_uml.png"],
     tags: ["Java", "Maven", "Design Patterns", "UML"],
     technologies: ["Java 11+", "Maven", "JUnit", "UML", "Modélisation"],
     features: [
@@ -79,19 +69,15 @@ Le système gère les places fixes, les places de passage et leurs affectations.
       "Gestion des contraintes métier complexes",
       "Modélisation UML cohérente"
     ],
-    github: "https://github.com/bikelalif",
+    github: "https://github.com/bikelalif/bilocal-gestion-bureaux",
     demo: "",
     date: "2024-2025"
   },
   "pharmaplan-gestion-planning": {
     title: "PharmaPlan - Planning Pharmacie",
-    full_description: `PharmaPlan est une application de gestion de planning développée pour une pharmacie.
-
-L'application permet aux différents utilisateurs (employés, gérants, administrateurs) de gérer les plannings de travail de manière sécurisée. Elle intègre un système d'authentification avec hachage bcrypt et une gestion fine des permissions.
-
-Le logiciel est packagé en .exe via Inno Setup pour une installation facile sans prérequis Python.`,
-    image: "/image_noire.jpg",
-    images: ["/image_noire.jpg"],
+    full_description: "PharmaPlan est une application de gestion de planning développée pour une pharmacie.\n\nL'application permet aux différents utilisateurs (employés, gérants, administrateurs) de gérer les plannings de travail de manière sécurisée. Elle intègre un système d'authentification avec hachage bcrypt et une gestion fine des permissions.\n\nLe logiciel est packagé en .exe via Inno Setup pour une installation facile sans prérequis Python.",
+    image: "/pharmaplan_logo.png",
+    images: ["/pharmaplan_logo.png"],
     tags: ["Python", "PyQt5", "SQLite", "bcrypt"],
     technologies: ["Python 3", "PyQt5", "SQLite", "bcrypt", "Inno Setup"],
     features: [
@@ -107,19 +93,15 @@ Le logiciel est packagé en .exe via Inno Setup pour une installation facile san
       "Gestion des rôles et permissions",
       "Packaging de l'application"
     ],
-    github: "https://github.com/bikelalif",
+    github: "https://github.com/bikelalif/pharmaplan-gestion-planning",
     demo: "",
     date: "2025"
   },
   "expressions-javafx": {
     title: "Expressions JavaFX",
-    full_description: `Application de calcul et manipulation d'expressions mathématiques développée en Java avec interface graphique JavaFX.
-
-Le projet implémente un parser complet pour analyser des expressions algébriques, les évaluer et les afficher sous forme d'arbre syntaxique. Il supporte les variables, les assignations et les opérations binaires/unaires.
-
-L'interface JavaFX permet une visualisation claire des expressions et de leur évaluation en temps réel.`,
-    image: "/image_noire.jpg",
-    images: ["/image_noire.jpg"],
+    full_description: "Application de calcul et manipulation d'expressions mathématiques développée en Java avec interface graphique JavaFX.\n\nLe projet implémente un parser complet pour analyser des expressions algébriques, les évaluer et les afficher sous forme d'arbre syntaxique. Il supporte les variables, les assignations et les opérations binaires/unaires.\n\nL'interface JavaFX permet une visualisation claire des expressions et de leur évaluation en temps réel.",
+    image: "/expressions_javafx.png",
+    images: ["/expressions_javafx.png"],
     tags: ["Java", "JavaFX", "Parser", "POO"],
     technologies: ["Java 11+", "JavaFX 20", "JUnit", "Maven/Eclipse"],
     features: [
@@ -135,19 +117,15 @@ L'interface JavaFX permet une visualisation claire des expressions et de leur é
       "Gestion des priorités d'opérateurs",
       "Architecture MVC propre"
     ],
-    github: "https://github.com/bikelalif",
+    github: "https://github.com/bikelalif/expressions-javafx",
     demo: "",
     date: "2024-2025"
   },
   "editeur-texte-ocaml": {
     title: "Éditeur de Texte OCaml",
-    full_description: `Éditeur de texte interactif développé en OCaml avec interface graphique utilisant la bibliothèque Graphics.
-
-Le projet implémente une structure de données basée sur les **zippers fonctionnels** pour une manipulation efficace du texte. Cette structure permet des opérations d'insertion, suppression et navigation en temps constant.
-
-L'éditeur supporte les raccourcis clavier standard et offre une expérience d'édition fluide.`,
-    image: "/image_noire.jpg",
-    images: ["/image_noire.jpg"],
+    full_description: "Éditeur de texte interactif développé en OCaml avec interface graphique utilisant la bibliothèque Graphics.\n\nLe projet implémente une structure de données basée sur les zippers fonctionnels pour une manipulation efficace du texte. Cette structure permet des opérations d'insertion, suppression et navigation en temps constant.\n\nL'éditeur supporte les raccourcis clavier standard et offre une expérience d'édition fluide.",
+    image: "/editeur_ocaml.png",
+    images: ["/editeur_ocaml.png"],
     tags: ["OCaml", "Graphics", "Zippers", "Fonctionnel"],
     technologies: ["OCaml", "Graphics", "Unix", "Makefile"],
     features: [
@@ -163,19 +141,15 @@ L'éditeur supporte les raccourcis clavier standard et offre une expérience d'�
       "Implémentation des zippers",
       "Intégration avec la bibliothèque Graphics"
     ],
-    github: "https://github.com/bikelalif",
+    github: "https://github.com/bikelalif/editeur-texte-ocaml",
     demo: "",
     date: "2024-2025"
   },
   "jeu-de-cartes-c": {
     title: "Jeu de Cartes en C",
-    full_description: `Jeu de cartes interactif développé en C avec une architecture modulaire.
-
-Le projet implémente un jeu complet avec gestion des cartes, des joueurs, du plateau et des règles. Chaque module est documenté avec Doxygen pour générer une documentation HTML automatique.
-
-Le Makefile permet une compilation facile et la génération de la documentation.`,
-    image: "/image_noire.jpg",
-    images: ["/image_noire.jpg"],
+    full_description: "Jeu de cartes interactif développé en C avec une architecture modulaire.\n\nLe projet implémente un jeu complet avec gestion des cartes, des joueurs, du plateau et des règles. Chaque module est documenté avec Doxygen pour générer une documentation HTML automatique.\n\nLe Makefile permet une compilation facile et la génération de la documentation.",
+    image: "/jeu_cartes_c.png",
+    images: ["/jeu_cartes_c.png"],
     tags: ["C", "Makefile", "Doxygen", "Algorithmique"],
     technologies: ["C", "Makefile", "Doxygen", "GCC"],
     features: [
@@ -191,7 +165,7 @@ Le Makefile permet une compilation facile et la génération de la documentation
       "Architecture modulaire",
       "Documentation exhaustive"
     ],
-    github: "https://github.com/bikelalif",
+    github: "https://github.com/bikelalif/jeu-de-cartes-c",
     demo: "",
     date: "2024-2025"
   }

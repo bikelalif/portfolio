@@ -5,17 +5,17 @@ export function Skills() {
     {
       icon: Code2,
       title: "Langages de Programmation",
-      skills: ["Python", "Java", "C", "SQL", "HTML/CSS", "PHP", "R", "OCAML", "Groovy"]
+      skills: ["Python", "Java", "C", "JavaScript", "TypeScript", "SQL", "HTML/CSS", "PHP", "R", "OCaml", "Groovy"]
     },
     {
       icon: Wrench,
-      title: "Outils & Bureautique",
-      skills: ["Microsoft Office", "Word", "Excel", "PowerPoint"]
+      title: "Frameworks & Outils",
+      skills: ["React", "Flask", "JavaFX", "PyQt5", "Maven", "Git", "Docker", "VS Code"]
     },
     {
       icon: Database,
       title: "Base de Données",
-      skills: ["SQL", "PostgreSQL", "MySQL"]
+      skills: ["PostgreSQL", "MySQL", "SQLite", "MongoDB"]
     },
     {
       icon: Palette,
