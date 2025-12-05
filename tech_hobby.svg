@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect fill="#1e293b" width="400" height="300"/>
+  <rect x="130" y="70" width="140" height="100" rx="8" fill="#334155" stroke="#64748b" stroke-width="3"/>
+  <rect x="140" y="80" width="120" height="75" fill="#1e293b"/>
+  <text x="200" y="125" fill="#22c55e" font-size="14" text-anchor="middle" font-family="monospace">code</text>
+  <rect x="170" y="175" width="60" height="8" rx="2" fill="#64748b"/>
+  <text x="200" y="240" fill="#94a3b8" font-size="28" text-anchor="middle" font-family="Arial, sans-serif">Tech</text>
+</svg>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test WebSocket</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a2e; color: #eee; }
+        #output { background: #0f0f1a; padding: 15px; border-radius: 8px; white-space: pre-wrap; height: 400px; overflow-y: auto; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        .info { color: #60a5fa; }
+    </style>
+</head>
+<body>
+    <h2>Test WebSocket - Terminal Demo</h2>
+    <button onclick="connect()">Connecter</button>
+    <button onclick="disconnect()">Déconnecter</button>
+    <button onclick="sendInput('1\n')">Envoyer "1"</button>
+    <button onclick="sendInput('2\n')">Envoyer "2"</button>
+    <div id="output"></div>
+
+    <script>
+        let ws = null;
+        const output = document.getElementById('output');
+        
+        function log(msg, cls = '') {
+            const line = document.createElement('div');
+            line.className = cls;
+            line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            output.appendChild(line);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function connect() {
+            const url = 'ws://localhost:5001/ws/terminal/jeu-de-cartes-c';
+            log(`Connexion à ${url}...`, 'info');
+            
+            try {
+                ws = new WebSocket(url);
+                
+                ws.onopen = () => {
+                    log('✓ Connecté!', 'success');
+                };
+                
+                ws.onmessage = (e) => {
+                    log(`Reçu: ${e.data.substring(0, 200)}...`);
+                };
+                
+                ws.onclose = (e) => {
+                    log(`Connexion fermée (code: ${e.code}, reason: ${e.reason})`, 'error');
+                };
+                
+                ws.onerror = (e) => {
+                    log(`Erreur WebSocket!`, 'error');
+                    console.error('WS Error:', e);
+                };
+            } catch (err) {
+                log(`Exception: ${err}`, 'error');
+            }
+        }
+
+        function disconnect() {
+            if (ws) {
+                ws.close();
+                ws = null;
+            }
+        }
+
+        function sendInput(text) {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(text);
+                log(`Envoyé: ${JSON.stringify(text)}`, 'info');
+            } else {
+                log('Non connecté!', 'error');
+            }
+        }
+    </script>
+</body>
+</html>
