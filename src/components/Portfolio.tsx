@@ -43,7 +43,7 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
       description: "Calculateur d'expressions mathématiques avec parsing, évaluation et affichage graphique en arbre.",
       image: "/image_noire.jpg",
       tags: ["Java", "JavaFX", "Parser", "POO"],
-      github: "https://github.com/bikelalif",
+      github: "https://github.com/bikelalif/expressions-javafx",
       demoUrl: null,
       demoInfo: "Application desktop"
     },
