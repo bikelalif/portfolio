@@ -13,7 +13,7 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
       description: "Application web Flask pour gérer et visualiser des événements (concerts, sport, culture). Filtres, favoris et authentification.",
       image: "/sevent_logo.png",
       tags: ["Python", "Flask", "SQLite", "HTML/CSS"],
-      github: "https://github.com/bikelalif",
+      github: "https://github.com/bikelalif/SEvent",
       demoUrl: "http://localhost:5002",
       demoInfo: "Démo locale disponible"
     },
@@ -23,7 +23,7 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
       description: "Logiciel de gestion de bilocalisation pour écoles d'ingénieurs. Patron Stratégie et Observer en Java.",
       image: "/bilocal_uml.png",
       tags: ["Java", "Maven", "Design Patterns", "UML"],
-      github: "https://github.com/bikelalif",
+      github: "https://github.com/bikelalif/bilocal-gestion-bureaux",
       demoUrl: null,
       demoInfo: null
     },
@@ -33,7 +33,7 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
       description: "Application de gestion de planning pour pharmacie avec système de rôles et authentification sécurisée.",
       image: "/image_noire.jpg",
       tags: ["Python", "PyQt5", "SQLite", "bcrypt"],
-      github: "https://github.com/bikelalif",
+      github: "https://github.com/bikelalif/pharmaplan-gestion-planning",
       demoUrl: null,
       demoInfo: "📥 Télécharger .exe"
     },
@@ -53,7 +53,7 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
       description: "Éditeur de texte interactif avec interface graphique. Structure de données basée sur les zippers.",
       image: "/image_noire.jpg",
       tags: ["OCaml", "Graphics", "Zippers", "Fonctionnel"],
-      github: "https://github.com/bikelalif",
+      github: "https://github.com/bikelalif/editeur-texte-ocaml",
       demoUrl: null,
       demoInfo: "Application desktop"
     },
@@ -63,7 +63,7 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
       description: "Jeu de cartes interactif avec gestion des joueurs, plateau et stratégies. Documentation Doxygen.",
       image: "/image_noire.jpg",
       tags: ["C", "Makefile", "Doxygen", "Algorithmique"],
-      github: "https://github.com/bikelalif",
+      github: "https://github.com/bikelalif/jeu-de-cartes-c",
       demoUrl: null,
       demoInfo: "Application console"
     }
