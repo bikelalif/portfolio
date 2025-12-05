@@ -1,0 +1,191 @@
+\documentclass[a4paper,11pt,english,openany]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} % for accentuated characters
+\usepackage{lmodern} % Latin Modern font
+\usepackage{pifont} % DingBats font
+\usepackage{float}
+
+\usepackage
+[
+        a4paper,% other options: a3paper, a5paper, etc
+        left=2cm,
+        right=2cm,
+        top=3cm,
+        bottom=4cm,
+        % use vmargin=2cm to make vertical margins equal to 2cm.
+        % us  hmargin=3cm to make horizontal margins equal to 3cm.
+        % use margin=3cm to make all margins  equal to 3cm.
+]
+{geometry}% layout
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{caption}
+\captionsetup{font=small}
+\usepackage{appendix}
+%\usepackage{hyperref}
+\renewcommand{\footnotesize}{\scriptsize}
+\usepackage[pdftex,% utility for pdf format
+    pagebackref=true,% link in biblio with page number of \cite
+    hyperfootnotes=false,
+    linktocpage=false,% false = toute la ligne est cliquable
+    breaklinks=true,% links possible on several lines 
+    colorlinks=true,% links in color and no box
+    linkcolor=blue,% couleur des liens internes (TOC, sections)
+    citecolor=blue,
+    urlcolor=blue,% couleur des URLs
+    hyperindex,%
+    pdffitwindow,
+    pdfpagemode=UseOutlines,%=None,%UseNone,
+    hypertexnames=true, %false
+    bookmarksopen=true]{hyperref} % hyperlinks for references
+
+
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{subfigure}
+
+\makeatother
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{airforceblue},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\usepackage{adjustbox}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{subfigure}
+%\renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\newcommand{\ie}{\textit{i.e.,} }
+\newcommand{\eg}{\textit{e.g.,} }
+\newcommand{\etal}{\textit{et al.}}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % valeur classique
+\newcommand\myfontsize{\fontsize{13pt}{14pt}\selectfont}
+\newcommand\monfontsize{\fontsize{29pt}{27pt}\selectfont}
+
+\thispagestyle{empty}
+
+\begin{center}
+\vfill
+
+% Upper part of the page. The '~' is needed because only works if a paragraph has started.
+\includegraphics[height=3cm]{Figures/ENSIIE01}~\\[.4cm]
+
+{\large École Nationale Supérieure d'Informatique pour l'Industrie et l'Entreprise\\[1.0cm]}
+
+% Title
+%\HRule \\[0.5cm]
+
+{\monfontsize \bfseries Rapport de stage de première année\\[0.6cm]}
+
+\HRule \\[1.0cm]
+
+{\large
+\emph{Étudiant} : \textbf{KEFIF Bilal}\\
+\emph{Encadrant académique} : \textbf{BANNOUR Fetia}\\[1.5cm]
+
+\includegraphics[height=5cm]{Figures/idia.png}~
+\hspace{1cm} 
+    
+\emph{Entities} : \textbf{idIA tech}  4 Le Porche, 30730 Montpezat\\[0.5cm]
+\emph{Encadrants de stage} : \textbf{BOUR Xavier}\\[1.5cm]
+
+
+
+\emph{Dates} : \textbf{2 Juin, 2025 - 31 Juillet, 2025}\\
+} % Fin \large
+        
+\end{center}
+
+\newpage
+\thispagestyle{empty}
+\pagenumbering{roman}  % <-- Start Roman numbering
+
+\chapter*{Remerciements}
+\addcontentsline{toc}{chapter}{Remerciements}
+\input{chapter/Remerciements}
+
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+\input{chapter/Résumé}
+
+\chapter*{Glossaire}
+\addcontentsline{toc}{chapter}{Glossaire}
+\input{chapter/Glossaire}
+
+\newpage
+\thispagestyle{empty}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{Listes des Figures}
+
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic} % <-- Switch to Arabic numbering
+
+\chapter{Introduction : Environnement de travail et stage}\label{ch:Introduction}
+\input{chapter/introduction}
+
+\chapter{Contexte et Préliminaires}\label{ch:background}
+\input{chapter/background}
+
+\chapter{Développement des scripts clients}\label{ch:solution}
+\input{chapter/solution}
+
+\chapter{Débogueur de l'IDE Grimport}\label{ch:debogueur}
+\input{chapter/debogueur}
+
+\chapter{Conclusion}\label{ch:conclusion}
+\input{chapter/conclusion}
+
+
+% Start the appendix environment
+\begin{appendices}
+
+%\chapter{Experimental artifacts}
+%\input{chapter/appendix_a}
+
+\chapter{Développement Durable et Responsabilité Sociétale (DD\&RS)}\label{ch:DDRS}
+\input{chapter/DDRS}
+
+
+\end{appendices}
+
+%\phantomsection
+\addcontentsline{toc}{chapter}{Bibliographie}
+\bibliographystyle{apalike}
+\nocite{*}
+\bibliography{biblio}
+
+\end{document}

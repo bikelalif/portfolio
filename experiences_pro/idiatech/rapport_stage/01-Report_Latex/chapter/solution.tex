@@ -1,0 +1,174 @@
+\section{Exemple d’un script simple d’ajout de produit}
+Avant d’aborder les difficultés rencontrées, il est utile de présenter un exemple de script de base développé avec Grimport. Celui-ci illustre la méthode générale utilisée pour extraire les informations d’un produit sur un site fournisseur et les importer automatiquement dans un CMS comme Prestashop.
+\vspace{2em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=9cm]{Figures/script_simple.png}
+  \caption{Script Grimport simple}
+  \label{fig:script_simple}
+\end{figure}
+
+La démarche suivie repose sur quatre étapes principales :
+\\
+\begin{itemize}
+
+    \item \textbf{Analyse de la structure du site fournisseur :}
+Grâce aux outils de développement intégrés dans Firefox ou n’importe quel autre navigateur, j’identifie les balises HTML et les sélecteurs CSS contenant les informations pertinentes (nom du produit, prix, description, images). Lorsque nécessaire, des expressions régulières (Regex) permettent d’extraire des valeurs spécifiques, comme une référence produit dans l’URL.
+\\
+
+    \item \textbf{Récupération des données :}
+Le script utilise des fonctions Grimport pour extraire les textes associés aux balises HTML. On peut aussi utiliser cleanRegex où on sélectionne directement une partie du code source grâce aux expressions régulières. 
+\\
+
+    \item \textbf{Transformation et formatage :}
+Les données brutes extraites doivent être mises en forme pour correspondre aux standards du CMS. Par exemple, le prix récupéré en texte HTML est converti en valeur numérique (htmlToPrice), et les liens d’images sont complétés pour être valides.
+\\
+
+    \item \textbf{Import dans le CMS :}
+    Les fonctions addProduct ou UpdateoraddProduct permet de communiquer avec le CMS et de lui fournir l’ensemble des informations collectées (nom, prix, description, images, référence produit, etc.). Chaque produit est ainsi automatiquement ajouté au catalogue du client ou alors modifé s’il existe déja, sans intervention manuelle.
+\end{itemize}
+\vspace{1em}
+Ce processus illustre la logique générale d’un script Grimport : analyser la structure du site (phase de retro engineering), extraire les informations pertinentes, transformer les données et les transmettre au CMS cible. Sur un site simple, ce type de script permet déjà de gagner un temps considérable en automatisant une tâche répétitive qui serait très coûteuse manuellement.
+
+
+\section{Problèmes rencontrés} 
+
+Lors de la conception et de l’adaptation des scripts Grimport pour les clients, plusieurs difficultés techniques se sont présentées :
+\\
+\begin{itemize}
+\item \textbf{Traduction des descriptions produits}
+Certains cahiers des charges exigeaient que les produits et leurs descriptions soient disponibles en plusieurs langues. Or, de nombreux sites fournisseurs ne proposaient pas de versions traduites, et les solutions de traduction automatique donnaient des résultats de qualité insuffisante.
+\\
+\item \textbf{Présence de Captchas}
+Certains sites utilisaient des Captchas afin de bloquer l’accès automatisé aux données, ce qui empêchait le crawler d’extraire les informations produits.
+\\
+\item \textbf{Navigation du crawler}
+Sur certains sites, le crawler n’était pas capable de distinguer correctement les différents onglets et rencontrait des difficultés pour accéder aux fiches produits.
+\\
+\item \textbf{Reconnaissance des pages produits}
+Le crawler ne différenciait pas toujours les véritables fiches produits des autres pages du site (panier, page d’accueil, conditions générales, etc.), ce qui perturbait l’import.
+\\
+\item \textbf{Accès restreint aux revendeurs}
+Certains fournisseurs limitaient leurs catalogues aux revendeurs connectés. L’accès aux pages produits nécessitait alors une authentification préalable et la gestion des cookies de session.
+\end{itemize}
+
+\section{Outils à disposition} 
+
+Pour mener à bien le développement des scripts clients, j’ai pu m’appuyer sur un ensemble d’outils et de fonctions déjà implémentés dans Grimport IDE. Ces outils étaient pensés pour faciliter le web-mining, l’extraction de données et l’intégration dans les CMS.
+\\
+\\
+\textbf{Fonctions natives de Grimport :}
+De nombreuses fonctions de base permettent de naviguer dans une page web et d’extraire des informations :
+\begin{itemize}
+    \item cleanSelect et cleanSelectAll : récupérer du texte ou des ensembles d’éléments à partir de sélecteurs CSS.
+\\
+    \item cleanRegex : extraire des valeurs à partir d’expressions régulières (par exemple une référence produit dans une URL).
+\\
+    \item htmlToPrice : convertir un texte en valeur numérique pour les prix.
+\\
+    \item addProduct : fonction clé qui envoie les informations collectées (nom, prix, images, description, etc.) vers le CMS Prestashop.
+\end{itemize}
+
+\textbf{Gestion des cookies :}
+\\
+Plusieurs fonctions intégrées permettent de manipuler les cookies et donc de gérer des connexions ou des sessions utilisateur :
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=5cm]{Figures/cookie.png}
+  \caption{Exemple simple d'initialisation de cookie}
+  \label{fig:cookie}
+\end{figure}
+
+\\
+\begin{itemize}
+    \item getCookies, getCookieValue : récupération des cookies d’un domaine.
+\\
+    \item setCookie, addCookie : modification ou ajout de cookies pour simuler une session.
+\\
+    \item clearCookie, clearAllCookies : suppression de cookies pour repartir d’une navigation vierge.
+\end{itemize}
+\vspace{1em}
+\\ \textbf{Interaction avec Firefox Developer Edition :}
+\\
+Grimport propose une fonction firefox() qui permet d’interagir directement avec un navigateur Firefox Developer Edition.
+\\
+Il y'a plusieurs actions possibles : naviguer vers une URL, exécuter du JavaScript, récupérer le code source de la page (sourceCode), ou encore gérer les frames et les cookies via le navigateur.
+\\
+Cet outil est utile lorsque l’identification est complexe ou que le site bloque les méthodes classiques d’extraction.
+\\
+\\
+\textbf{Utilisation d’APIs externes :}
+\\
+\\
+Grimport intègre aussi des fonctions pour interagir avec des services tiers :
+\begin{itemize}
+    \item OpenAI API via gptQuestion : permet de poser des questions en langage naturel et de recevoir une réponse générée par un modèle d’intelligence artificielle. 
+    \\
+    \item API antiCaptcha : permet de résoudre automatiquement des Captchas grâce à un service externe.
+\end{itemize}
+
+
+\section{Mise en œuvre des solutions} 
+
+\subsection{Démarche générale}
+Pour résoudre les difficultés rencontrées lors du développement des scripts clients, j’ai adopté une approche pragmatique consistant à combiner différents outils et fonctions déjà disponibles dans Grimport IDE. Mon travail s’articulait autour de trois volets :
+\\
+\begin{itemize}
+    \item L’analyse des requêtes réseau pour comprendre et contourner les blocages liés aux Captchas et à l’authentification.
+    \\
+    \item L’utilisation d’APIs externes pour la traduction et la reformulation de contenus.
+    \\
+    \item L’exploitation de fonctions avancées de Grimport (gestion des cookies, interaction avec Firefox, exécution de scripts JavaScript) afin d’automatiser au maximum les scénarios de navigation.
+\end{itemize}
+
+\subsection{Détails techniques}
+
+\textbf{Captchas et problèmes de cookies de connexion :}
+\\
+Lorsque le crawler rencontrait un Captcha ou une authentification bloquée, je lançais une analyse réseau avec Fiddler. Cet outil intercepte les requêtes HTTP et permet d’identifier les causes d’erreur. Très souvent, les Captchas et les problèmes de cookies généraient des erreurs HTTP POST 500, liées à une mauvaise gestion de la requête côté serveur (session invalide, cookie manquant ou expiré). Cette analyse me permettait d’adapter mes scripts en conséquence.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=7cm]{Figures/erreur_500.png}
+  \caption{Réponse serveur affichant une erreur 500 Internal Server Error}
+  \label{fig:error_500}
+\end{figure}
+
+\\
+\\
+\textbf{Traduction et reformulation :}
+\\
+Pour répondre aux demandes de traduction multilingue des descriptions produits, il aurait été possible d’utiliser l’API Deepl. Toutefois, nous avons préféré recourir à l’API ChatGPT via la fonction gptQuestion, car elle permet de prendre en compte le contexte du texte source et de produire une traduction plus ciblée et plus naturelle. De plus, ChatGPT pouvait être utilisé non seulement pour traduire, mais aussi pour reformuler certains contenus, ce qui enrichissait la qualité des descriptions importées.
+\\
+\\
+\textbf{Connexion et authentification :}
+\\
+Deux méthodes principales étaient possibles pour gérer la connexion aux sites réservés aux revendeurs :
+\\
+\begin{itemize}
+    \item Avec setCookie : en injectant directement les informations de connexion (login, mot de passe, paramètre de session) dans le domaine concerné, comme dans l’exemple ci-dessous :
+    \\
+    \item Avec firefox() et JavaScript : En exécutant des requêtes JavaScript qui simulaient le remplissage des champs de connexion avant le lancement du crawler. Cette approche permettait d’émuler une authentification manuelle dans le navigateur, tout en gardant un script automatisé.
+\end{itemize}
+\vspace{1em}
+\textbf{Navigation manuelle avec Firefox :}
+\\
+Dans certains cas où le crawler ne progressait pas (par exemple lorsque plusieurs fiches produits partageaient la même URL), la solution consistait à contourner le problème en utilisant uniquement la fonction firefox(). Le script parcourait alors le site en s’appuyant directement sur le code source des pages et sur les informations de pagination disponibles. L’extraction se faisait produit par produit, de manière plus proche d’une navigation manuelle, où l’on simulait un clic humain sur page précédente et suivante mais toujours automatisée par script.
+
+
+\subsection{Résultats et discussion}
+L’utilisation combinée de ces outils a permis de débloquer la majorité des situations rencontrées. Les Captchas et problèmes de cookies ont pu être identifiés rapidement grâce à Fiddler, les traductions ont gagné en qualité avec l’API ChatGPT, et l’authentification a été gérée soit par injection de cookies, soit par automatisation via Firefox.
+\\
+Néanmoins, ces solutions ne sont pas parfaites :
+\\
+\begin{itemize}
+    \item l’appel à des APIs externes (ChatGPT, antiCaptcha) génère des coûts et dépend de la disponibilité des services
+    \\
+    \item l’utilisation intensive de Firefox ralentit les scripts et introduit une dépendance fragile au navigateur
+    \\
+    \item certaines pages dynamiques très complexes restent difficiles à automatiser complètement.
+\end{itemize}
+\vspace{1em}
+Malgré ces limites, ces approches ont permis d’obtenir des scripts robustes, capables de traiter la diversité des catalogues fournisseurs rencontrés en conditions réelles.
+

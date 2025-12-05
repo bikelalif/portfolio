@@ -1,0 +1,51 @@
+\section{Cahier des charges}
+Le cahier des charges de mon stage comportait deux volets :
+\\
+\begin{itemize}
+\item \textbf Mission principale (dossiers clients) : Développer, en Grimport, des scripts capables d’extraire automatiquement les informations contenues dans les catalogues fournisseurs (titres, descriptions, caractéristiques, images des produits ou encore avis des clients existants en plusieurs langues) et de les importer dans le CMS Prestashop de chaque client via l’analyse de structure des sites web et de retro-engineering. Les solutions mises en place devaient être robustes, adaptées aux spécificités de chaque site fournisseur et fournir un résultat fonctionnel ce qui nécessitait de bonnes connaissances en web.
+\\
+\item \textbf Mission secondaire (IDE Grimport) : Analyser et corriger le code source Groovy/Java du débogueur, afin de compiler une version fonctionnelle en .jar et de l’intégrer correctement au projet. L’objectif était de lever les problèmes liés aux dépendances et aux bibliothèques manquantes, hérités des modifications apportées par mes prédécesseurs sur l’IDE eclispe.
+
+\end{itemize}
+\begin{itemize}
+\section{Méthodes et outils utilisés dans l’entreprise}
+
+Je travaillais principalement en autonomie, surtout sur les dossiers clients où je m’occupais également de la relation client et discutais avec afin d’affiner le cahier des charges qu’il me fournissaient. Mais pour le projet débogueur, j’étais en collaboration avec d’autres développeurs et stagiaires de l’équipe.\\
+Les principaux outils et technologies utilisés étaient :
+\item \textbf{Grimport :} langage et IDE propriétaire de l’entreprise, utilisé pour développer les scripts de crawling et d’intégration. 
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=9cm]{Figures/ide.png}
+  \caption{Présentation de l'IDE}
+  \label{fig:ide}
+\end{figure}
+
+\vspace{3em}
+
+\item \textbf{Prestashop :} CMS e-commerce utilisé par la majorité des clients d’idIA Tech.
+\\
+
+\item \textbf{Firefox Developer Edition :} afin d’analyser le code source des sites fournisseurs et identifier les éléments pertinents (sélecteurs CSS, Regex).
+\\
+
+\item \textbf{Fiddler Classic :} outil de capture réseau permettant de récupérer et analyser les requêtes effectuées par le crawler, afin de comprendre l’origine et la nature des erreurs rencontrées.
+\\
+
+\item \textbf{Notepad++ :} utilisé pour comparer les différences entre plusieurs requêtes réseau, faciliter l’analyse de ces requêtes et écrire les regex dont j’avais besoin
+\\
+
+\item \textbf{Gradle :} outil de build et de gestion des dépendances, utilisé pour la compilation du code Groovy.
+\\
+
+\item \textbf{Java / Groovy :} langages nécessaires pour analyser et corriger le code source du débogueur Grimport.
+
+\end{itemize}
+\section{Intégration et positionnement du stage}
+Dès mon arrivée, j’ai suivi une formation interne sur Grimport et son IDE. Grâce à cette montée en compétences rapide, j’ai pu prendre en charge directement des dossiers clients et développer des scripts d’import adaptés à leurs besoins.
+\\
+\\
+\\
+Concernant l’IDE, le débogueur avait déjà été développé par mes prédécesseurs. Toutefois, pour parvenir à compiler le projet, une partie du code source Groovy avait été mise en commentaires, ce qui entraînait des bugs et des incohérences..\\ Mon rôle a donc consisté à discuter avec ceux qui étaient sur la mission avant moi pour comprendre d’où pourrait venir les problèmes et rétablir un code fonctionnel, à décommenter proprement ces parties, puis à résoudre les problèmes restants liés aux librairies, aux dépendances et aux erreurs Java, afin d’obtenir une version compilable et exploitable du débogueur.
+

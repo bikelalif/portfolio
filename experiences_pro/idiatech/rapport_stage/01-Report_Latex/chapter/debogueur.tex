@@ -1,0 +1,34 @@
+\section{Contexte du débogueur}
+Le débogueur intégré à l'IDE Grimport avait été fortement modifié par mes prédécesseurs. Ces modifications, effectuées sur le code source Groovy/Java, avaient introduit de nombreuses incohérences et rendu le projet incompilable. Plusieurs parties du code avaient été commentées, certaines bibliothèques manquaient, et aucune version binaire précompilée n'était disponible pour la version de Groovy utilisée (2.5.9).
+Mon objectif était de restaurer une version fonctionnelle et compilable du débogueur.
+
+\section{Difficultés rencontrées}
+Plusieurs obstacles sont rapidement apparus :
+\begin{itemize}
+  \item \textbf{Dépendances manquantes} : de nombreuses bibliothèques étaient absentes du projet, certaines difficiles à trouver sous forme .jar (par exemple \texttt{org.apache.tools.ant.BuildFileTest}).
+  \item \textbf{Compatibilités Java / Groovy / Gradle} : le projet utilisait une version ancienne de Groovy, plus compatible avec les versions récentes de Java et de Gradle.
+  \item \textbf{Code commenté} : certaines portions avaient été désactivées, entraînant des erreurs de cohérence qu'il fallait analyser et corriger.
+  \item \textbf{Absence de jar officiel} : depuis Groovy 1.*, il n'existe plus de jar complet prêt à l'emploi sur Maven, seulement des modules dispersés, ce qui compliquait l'intégration.
+\end{itemize}
+
+\section{Démarche adoptée}
+Pour résoudre ces problèmes, j'ai adopté une approche progressive :
+\begin{itemize}
+  \item Inventaire des erreurs de compilation à partir des logs Gradle.
+  \item Recherche et intégration des dépendances manquantes (\textit{mvnrepository.com}) et centralisation des .jar sur un dépôt GitHub.
+  \item Décommentage progressif du code et corrections des incompatibilités Java/Groovy.
+  \item Tests de compilation avec plusieurs versions de Java (8, 11, 17) pour identifier la combinaison la plus stable.
+\end{itemize}
+\vspace{1em}
+Mais malgré toutes ces tentatives toujours le même problème lors de la compilation de groovy 2.5.9 à l'aide de Gradle. Donc j'ai décider de remonter directement à la version officielle de groovy en essayant de la recompiler sur ma machine et ainsi ajouter la dépendance au projet débogueur mais impossible de compiler cette version. Les seules pistes que j'avais était que la version de java bloquait la compilation car il n'est pas censer y'avoir d'erreurs dans la version officielle qu'a sortit groovy.
+
+
+\section{Résultats et limites}
+À l'issue de ce travail :
+\begin{itemize}
+  \item Une partie des dépendances manquantes ont été retrouvées et intégrées manuellement.
+  \item L'environnement Eclipse est désormais capable d'ouvrir et de comprendre le projet Groovy/Java, sans afficher 999+ erreurs à l'écran.
+  \item Le code source du débogueur est plus cohérent et testable prémunisé des erreurs java existantes auparavant.
+\end{itemize}
+
+Cependant, certaines bibliothèques restent introuvables ou incompatibles et empêchent encore la compilation complète du projet en un jar fonctionnel. Le projet n'est donc pas encore totalement exploitable, mais il est désormais documenté et beaucoup plus facile à reprendre.

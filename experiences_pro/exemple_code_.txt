@@ -1,0 +1,459 @@
+// AC : Test page PL = https://www.quirumed.com/pl/fotel-do-tatuazu-hawk.html
+majShippingPrice = true; //WIZ_VARIABLE #name: Update shipping prices (slower crawling)
+majTraductions = true; //WIZ_VARIABLE #name: Update text translations (slower crawling)
+id_cat_a_trier = 9334
+
+isoLang2StoreId = [
+	"en-GB": [11,3],
+	"pl-PL" : [1,12],
+	//"x-default" : [3],
+	"zh-CN" : [4],
+	"fr-FR" : [5],
+	"de-DE" : [6],
+	"it-IT" : [7],
+	"pt-PT" : [8],
+	"es-ES" : [9],
+	"ar" : [10],
+]
+isoLang2StoreIdPourFraisLivraison = [
+	"en-GB": [11],
+	"pl-PL" : [12],
+	//"x-default" : [3],
+	"zh-CN" : [4],
+	"fr-FR" : [5],
+	"de-DE" : [6],
+	"it-IT" : [7],
+	"pt-PT" : [8],
+	"es-ES" : [9],
+	"ar" : [10],
+]
+
+
+langageDefaut = "en-GB"
+
+
+//LOCK
+
+
+def labelPrix2Devise(labelPrix) {
+	if(contains(labelPrix, "zł")) return "PLN"
+	else if(contains(labelPrix, "£")) return "GBP"
+	else if(contains(labelPrix, "¥")) return "CNY"
+	else if(contains(labelPrix, "\$")) return "USD"
+	else return "EUR"
+}
+
+def checkRole(mess)
+{
+	return
+	
+	php('''
+if($id_product)
+{
+	$repo     = $objectManager->get('\\Magento\\Catalog\\Api\\ProductRepositoryInterface');
+	$product = $repo->getById($id_product, false, 0, true);
+	$mediaGalleryImages = $product->getMediaGalleryEntries();
+	
+    foreach ($mediaGalleryImages as $image) {
+        $filePath = $image->getFile(); // Chemin du fichier de l'image
+        $types = $image->getTypes(); // Rôles assignés à cette image
+
+    	   echo ' '''+mess+''' /// first:'.$filePath.' - roles:'.print_r($types, true)."\n";
+    	   break;
+    	}
+
+
+
+	    // Connexion à la base de données
+    $resource = $objectManager->get(\\Magento\\Framework\\App\\ResourceConnection::class);
+    $connection = $resource->getConnection();
+    
+    // Requête SQL corrigée
+    $sql = "
+        SELECT
+            cpei.entity_id AS product_id,
+            cpeg.value AS image_path,  -- Le chemin de l'image est dans la colonne 'value'
+            cpeg.media_type,  -- Devrait toujours être 'image'
+            cpevg.label AS image_label,  -- Libellé de l'image
+            cpevg.position,  -- Position de l'image dans la galerie
+            cpevg.disabled  -- 0 = actif, 1 = désactivé
+        FROM
+            catalog_product_entity cpei
+        JOIN
+            catalog_product_entity_media_gallery cpeg ON cpeg.value_id = (
+                SELECT value_id FROM catalog_product_entity_media_gallery_value
+                WHERE entity_id = cpei.entity_id LIMIT 1
+            )
+        LEFT JOIN
+            catalog_product_entity_media_gallery_value cpevg ON cpeg.value_id = cpevg.value_id
+        WHERE
+            cpei.entity_id = :product_id;
+    ";
+
+    // Exécuter la requête SQL
+    $bind = ['product_id' => $id_product];
+    $results = $connection->fetchAll($sql, $bind);
+    
+    // Afficher les résultats
+    if ($results) {
+        foreach ($results as $row) {
+            echo 'Image Path: ' . $row['image_path'] . "-";
+            echo 'Image Label: ' . ($row['image_label'] ?? 'N/A') . "-";
+            echo 'Position: ' . ($row['position'] ?? 'N/A') . "-";
+            echo 'Disabled: ' . ($row['disabled'] == 0 ? 'Active' : 'Disabled') . "---\n";
+        }
+    } else {
+        echo "Aucune image trouvée pour ce produit.\n";
+    }
+
+}
+else echo 'Aucun ID produit '''+mess+''' ';
+	''')
+}
+
+/**
+ * Map of language to store id
+ * Key : named based on website
+ * value : store_id of client's store on medshop
+ */
+nom = cleanSelect("h1.page-title")
+prix = cleanSelect("[data-price-type=finalPrice]", null, null, "p")
+//ref = cleanRegex(/(?si)"sku":\s*"([A-Za-z0-9\-]+)"/, null, null, 1)
+ref = cleanRegex(/(?si)"item_id":\s*"([^<>"]+)"/, null, null, 1)
+
+if(nom && prix && ref) {
+	id_product_exist = functionNow("id_product_reference", [ref])
+	linksHtml = selectAll("link[rel=alternate]", null, "outerHTML")
+	links = [:]
+
+	if(id_product_exist)
+	{
+		php('''$id_product='''+id_product_exist+"""; """)
+		checkRole("debut")
+	}
+	
+	for(link in linksHtml) {
+		links.put(select("link", link, "hreflang"), select("link", link, "href"))
+	}
+
+	product = [:]
+	product.put("reference", ref)
+	productEan = cleanRegex(/(?si)"gtin":\s*"(\d{13})"/, null, "integer", 1)
+	product.put("ean13", productEan)
+	stock = 0
+
+	if(cleanSelect("div.stock.available")) stock = 10
+	availabilityDate = null
+	if(cleanSelect("div.stock.preorder")) {
+		availabilityDate = cleanSelect("div.stock.preorder #outOfStock")
+		product.put("availabilityDate", availabilityDate)
+	}
+	
+	//images
+	images = []
+	
+	jsonInfos = jsonDecode(regex(/(?si)<script type="text\/x-magento-init">([^<>]+"magnifierOpts"[^<>]+)<\/script>/))
+	for(imageProps in get(jsonInfos, "[data-gallery-role=gallery-placeholder]", "Quirumed_CustomCatalog/js/gallery/custom_gallery", "data")) images.add(get(imageProps, "full"))
+	
+	jsonSwatch = jsonDecode(regex(/(?si)<script type="text\/x-magento-init">([^<>]+"\[data-role=swatch-options\]".+?)<\/script>/))
+	for(imageProps in get(jsonSwatch, "[data-role=swatch-options]", "Magento_Swatches/js/swatch-renderer", "jsonConfig", "images"))
+	{
+		for(imagePropsDecl in imageProps.value) images.add(get(imagePropsDecl, "full"))
+	}
+
+	product.put("stock", stock)
+	product.put("images", images)
+	product.put("attributesByLanguage", [:])
+	
+	if(!id_product_exist || majTraductions || majShippingPrice) {
+		for (language in keys(links)) {
+			if(!arrayContains(isoLang2StoreId, language, false)) continue
+			console("on select en $language")
+			productAttributes = [:]
+			codePageLanguage = getPage(get(links, language))
+			productAttributes.put("id", cleanRegex(/(?si)product-id-(\d+)"/, codePageLanguage, null, 1))
+			productAttributes.put("name", cleanSelect(".page-title span", codePageLanguage))
+			productAttributes.put("reference", cleanRegex(/(?si)"item_id":\s*"([^<>"]+)"/, codePageLanguage, null, 1))
+			productAttributes.put("title", cleanSelect("title", codePageLanguage))
+
+			//Prix
+			productFinalPrice = cleanSelect(".price-including-tax[data-price-type=finalPrice]", codePageLanguage)
+			productAttributes.put("finalPrice", productFinalPrice)
+			productOlderPrice = cleanSelect(".price-including-tax[data-price-type=oldPrice]", codePageLanguage)
+			productAttributes.put("olderPrice", productOlderPrice)
+			productPromotionPercentage = cleanSelect(".promo-bar.bar-discount span", codePageLanguage)
+			productAttributes.put("promotionPercentage", productPromotionPercentage)
+			productAttributes.put("rewrinting_url", cleanRegex(/(?si)\/([^.\/]+)\.htm/, get(links, language)))
+
+			if(productPromotionPercentage) {
+				productPromotionValidityDate = cleanRegex(/(?si)"priceValidUntil":\s*"(\d{4}-\d{2}-\d{2})"/, codePageLanguage, null, 1)
+				productAttributes.put("promotionValidityDate", productPromotionValidityDate)
+			}
+
+			productBasePrice = cleanSelect(".price-excluding-tax[data-price-type=basePrice]", codePageLanguage)
+			productAttributes.put("basePrice", productBasePrice)
+			productDescriptionHTML = cleanSelect("#description", codePageLanguage, null, "description")
+			productDescription = removeTags(productDescriptionHTML, ["a", "span"])
+			productAttributes.put("description", productDescription)
+
+			if(!htmlToPrice(productBasePrice))
+			{
+				console("bypass $language - no productBasePrice")
+				continue
+			}
+
+			// / TVA calculée depuis prix final et prix de base
+			vatPercentage = ((htmlToPrice(productFinalPrice) - htmlToPrice(productBasePrice)) / htmlToPrice(productBasePrice)) * 100	
+			productAttributes.put("vatPercentage", vatPercentage)
+			
+			// Extraire le pays depuis la langue
+			taxCountry = regex(/[a-z]{2}-([A-Z]{2})/, language)
+			
+			productTaxClass = functionNow("get_tax_class", [vatPercentage, taxCountry])
+			productAttributes.put("productTaxClass", productTaxClass)
+
+			if(number(get(product, "stock")) > 0) {
+				shippingPrice = null
+				shippingTime = cleanSelect("span#inStock", codePageLanguage)
+				productAttributes.put("shippingTime", shippingTime)
+				if(select("div.bar-freeshipping", codePageLanguage)) shippingPrice = 0
+				else if(majShippingPrice)
+				{
+					firefox("clearAllCookies", ".quirumed.com")
+					firefox("clearAllCookies", ".www.quirumed.com")
+					firefox("clearAllCookies", "quirumed.com")
+					firefox("clearAllCookies", "www.quirumed.com")
+					firefox("browse", get(links, language))
+					firefox("waitLoaded")
+					firefox("javascript", """document.getElementById("onetrust-accept-btn-handler").click(); document.getElementById("product-addtocart-button").click()""")
+					await(5000)
+					firefox("browse", "https://www.quirumed.com/"+substring(language, 0, 2)+"/checkout/cart/")
+					firefox("waitLoaded")
+					fin = timestamp() + 10*1000
+					
+					while(timestamp()<fin && !shippingPrice)
+					{
+						shippingPrice = number(firefox("javascript", """
+if(document.querySelector(".totals.shipping .amount .price")) 
+	document.querySelector(".totals.shipping .amount .price").textContent; 
+else '' """))
+						await(500)
+					}
+					
+				}
+	
+				productAttributes.put("shippingPrice", shippingPrice)
+			}
+	
+			// Arborescence des catégories du produit
+			productCategoriesTree = cleanSelectAll(".breadcrumbs .item:not(.home) a")
+	
+			productAttributes.put(
+				"categoriesTree",
+				productCategoriesTree
+			)
+			
+			// Rajout de la langue et les attribues dans product["attributesByLanguage"]
+			get(product, "attributesByLanguage").put(language, productAttributes)
+		}
+	}
+
+
+	//Traducing for the 
+	otherLanguages = [] // ["ar", "zh-CN"]
+	
+	for(language in otherLanguages) {
+
+		product2Traduce = get(product, "attributesByLanguage", "en-GB")
+
+		categoriesTree = []
+
+		for(index = 0; index < count(get(product2Traduce, "categoriesTree")); index++) 
+		{
+			categoriesTree.add(
+				translateGoogle(
+					get(product2Traduce, "categoriesTree", index),
+					"en", 
+					language
+				)
+			)
+		}
+
+		productAttributes = [
+			"name" : translateGoogle(
+				get(product2Traduce, "name"),
+				"en", 
+				language
+			),
+			"id" : get(product2Traduce, "name"),
+			"title" : translateGoogle(
+				get(product2Traduce, "title"),
+				"en", 
+				language
+			),
+			"finalPrice" : get(product2Traduce, "finalPrice"),
+			"olderPrice" : get(product2Traduce, "olderPrice"),
+			"promotionPercentage" : get(product2Traduce, "promotionPercentage"),
+			"promotionValidityDate" : get(product2Traduce, "promotionValidityDate"),
+			"basePrice" : get(product2Traduce, "basePrice"),
+			"description" : translateGoogle(
+				get(product2Traduce, "description"),
+				"en",
+				language
+			),
+			"shippingTime" : get(product2Traduce, "shippingTime"),
+			"shippingPrice" : get(product2Traduce, "shippingPrice"),
+			"categoriesTree" : categoriesTree
+		]
+
+		// Rajout de la langue et les attribues dans product["attributesByLanguage"]
+		get(product, "attributesByLanguage").put(language, productAttributes)
+	}
+
+	//console(jsonEncode(product))
+
+	ratioTVA = get(idStore2RatioTVA, get(isoLang2StoreId, langageDefaut, 0)) ?: 1
+	
+	productDefaut = get(product, "attributesByLanguage", langageDefaut)
+	function("update_or_add_product",[
+		"name": id_product_exist && !majTraductions ? null : get(productDefaut, "name"),
+		"price": htmlToPrice(get(productDefaut, "finalPrice")) / ratioTVA,
+		"sku": ref,
+		"id_particular_store": get(isoLang2StoreId, langageDefaut),
+		//"description_short": null,
+		"description_long": id_product_exist && !majTraductions ? null : get(productDefaut, "description"),
+		"buying_price": htmlToPrice(get(productDefaut, "basePrice")),
+		"tax_class": get(productDefaut, "productTaxClass"),
+		"price_without_reduc": htmlToPrice(get(productDefaut, "olderPrice")) / ratioTVA,
+		"rewrinting_url": get(productDefaut, "rewrinting_url"), 
+	])
+	if(get(productDefaut, "finalPrice") ) function("set_data",["net_price",htmlToPrice(get(productDefaut, "basePrice") )  / ratioTVA])
+	if(get(productDefaut, "basePrice")) function("set_data",["gross_price",htmlToPrice(get(productDefaut, "finalPrice")  ) / ratioTVA])
+
+	checkRole("update_or_add_product")
+
+	for(langProp in isoLang2StoreId)
+	{
+		isoLang = langProp.key
+		listeIdsStores = langProp.value
+
+		for(idStore in listeIdsStores)
+		{
+			produitLang = get(product, "attributesByLanguage", isoLang)
+			if(!produitLang) produitLang = productDefaut
+			if(!produitLang) continue
+			name = get(produitLang, "name")
+			buying_price = get(produitLang, "basePrice")
+			price = get(produitLang, "finalPrice")
+			console("Je fais la maj en $langProp de $name, prix brut = $buying_price et prix net =$price")
+			console("$produitLang")
+
+			ratioTVA = get(idStore2RatioTVA, idStore, 0) ?: 1
+			
+			function("update_or_add_product",[
+				"name": id_product_exist && !majTraductions ? null : get(produitLang, "name"),
+				"price": htmlToPrice(price)/ratioTVA,
+				"sku": ref,
+				"id_particular_store": idStore,
+				"description_long": id_product_exist && !majTraductions ? null : get(produitLang, "description"),
+				"buying_price": htmlToPrice(buying_price),
+				"tax_class": get(produitLang, "productTaxClass"),
+				"price_without_reduc": htmlToPrice(get(produitLang, "olderPrice")) / ratioTVA,
+				"rewrinting_url": get(produitLang, "rewrinting_url"),
+			])
+			checkRole("update_or_add_product-"+idStore)
+			
+			stockLabel = get(produitLang, "shippingTime") //jsonEncode(produitLang)   jsonEncode(product)
+			function("set_data",["arrives",stockLabel, null, idStore])		
+			
+			if(price) function("set_data",["net_price",htmlToPrice(buying_price) , null, idStore])
+			if(buying_price) function("set_data",["gross_price",htmlToPrice(price)/ratioTVA, null, idStore])
+			checkRole("set_data-"+idStore)
+
+			send()
+		}
+	}
+	function("id_product_reference", [ref, true])
+	categoriesTree = get(productDefaut, "categoriesTree")
+	
+	//categories
+	if(!id_product_exist)
+	{
+		id_categorie = id_cat_a_trier
+		id_parent = id_cat_a_trier
+		listCategories=[id_cat_a_trier]
+
+		majCategories = false
+		iCateg = 0
+		for(categorie in categoriesTree)
+		{
+			id_cat = getCategoryIn(categorie, id_parent)
+			if(!id_cat)
+			{
+				id_cat = functionNow("add_category",[categorie,id_parent])
+				majCategories = true
+				id_parent = id_cat
+
+				//traductions categorie
+				for(langProp in isoLang2StoreId)
+				{
+					isoLang = langProp.key
+					listeIdsStores = langProp.value
+
+					for(idStore in listeIdsStores)
+					{
+						categoriesTreeLang = get(product, "attributesByLanguage", isoLang, "categoriesTree")
+						categorieLang = get(categoriesTreeLang, iCateg)
+						function("set_category_props",[categorieLang, null, id_cat, idStore])
+					}
+				}
+			}
+			listCategories.add(id_cat)
+			iCateg++
+		}
+		function("associate_category", [listCategories])
+		checkRole("associate_category")
+		if(majCategories) updateCategories()
+	}
+
+	//images
+	if(!id_product_exist)
+	
+	{
+		for(image in get(product, "images"))
+		{
+			function("add_image", [
+				standardizeText(replace(image, "\\/", "/")) 
+			])
+			checkRole("img"+image)
+		}
+	}
+
+	//stocks
+	function("update_stock", [stock])
+	send()
+
+	//frais de livraison
+	for(langProp in isoLang2StoreIdPourFraisLivraison)
+	{
+		isoLang = langProp.key
+		listeIdsStores = langProp.value
+
+		for(idStore in listeIdsStores)
+		{
+			ratioTVA = get(idStore2RatioTVA, idStore, 0) ?: 1
+			
+			function("id_product_reference", [ref, true])
+			devise = get(idShop2Currency, idStore)
+			fraisPort = get(product, "attributesByLanguage", isoLang, "shippingPrice")
+			console("Frai de port sur $idStore : $fraisPort / $ratioTVA")
+			if(fraisPort && containsRegex(/(?si)[0-9]/, fraisPort)) function("set_data",["shipping_rate",htmlToPrice(fraisPort)/ratioTVA,null,idStore])
+			function("set_data",["custom_currency",devise,null,idStore])
+			send()
+		}
+	}
+	
+}
+//LOCK_END
+
+
