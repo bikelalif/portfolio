@@ -1,26 +1,33 @@
 import { ExternalLink, Github, ArrowRight, Play } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface PortfolioProps {
   onProjectClick: (slug: string) => void;
 }
 
 export function Portfolio({ onProjectClick }: PortfolioProps) {
+  const { t, language } = useLanguage();
+  
   const projects = [
     {
       slug: "sevent-gestion-evenements",
-      title: "SEvent - Gestion d'Événements",
-      description: "Application web Flask pour gérer et visualiser des événements (concerts, sport, culture). Filtres, favoris et authentification.",
+      title: "SEvent - " + (language === 'fr' ? "Gestion d'Événements" : "Event Management"),
+      description: language === 'fr' 
+        ? "Application web Flask pour gérer et visualiser des événements (concerts, sport, culture). Filtres, favoris et authentification."
+        : "Flask web application to manage and view events (concerts, sports, culture). Filters, favorites and authentication.",
       image: "/sevent_logo.png",
       tags: ["Python", "Flask", "SQLite", "HTML/CSS"],
       github: "https://github.com/bikelalif/SEvent",
       demoUrl: "http://localhost:5002",
-      demoInfo: "Démo locale disponible"
+      demoInfo: language === 'fr' ? "Démo locale disponible" : "Local demo available"
     },
     {
       slug: "bilocal-gestion-bureaux",
-      title: "BiLOCAL - Gestion de Bureaux",
-      description: "Logiciel de gestion de bilocalisation pour écoles d'ingénieurs. Patron Stratégie et Observer en Java.",
+      title: "BiLOCAL - " + (language === 'fr' ? "Gestion de Bureaux" : "Office Management"),
+      description: language === 'fr'
+        ? "Logiciel de gestion de bilocalisation pour écoles d'ingénieurs. Patron Stratégie et Observer en Java."
+        : "Bilocation management software for engineering schools. Strategy and Observer patterns in Java.",
       image: "/bilocal.png",
       tags: ["Java", "Maven", "Design Patterns", "UML"],
       github: "https://github.com/bikelalif/bilocal-gestion-bureaux",
@@ -29,49 +36,57 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
     },
     {
       slug: "pharmaplan-gestion-planning",
-      title: "PharmaPlan - Planning Pharmacie",
-      description: "Application de gestion de planning pour pharmacie avec système de rôles et authentification sécurisée.",
+      title: "PharmaPlan - " + (language === 'fr' ? "Planning Pharmacie" : "Pharmacy Scheduling"),
+      description: language === 'fr'
+        ? "Application de gestion de planning pour pharmacie avec système de rôles et authentification sécurisée."
+        : "Pharmacy scheduling management application with role system and secure authentication.",
       image: "/pharmaplan_logo.png",
       tags: ["Python", "PyQt5", "SQLite", "bcrypt"],
       github: "https://github.com/bikelalif/pharmaplan-gestion-planning",
       demoUrl: null,
-      demoInfo: "📥 Télécharger .exe"
+      demoInfo: language === 'fr' ? "📥 Télécharger .exe" : "📥 Download .exe"
     },
     {
       slug: "expressions-javafx",
       title: "Expressions JavaFX",
-      description: "Calculateur d'expressions mathématiques avec parsing, évaluation et affichage graphique en arbre.",
+      description: language === 'fr'
+        ? "Calculateur d'expressions mathématiques avec parsing, évaluation et affichage graphique en arbre."
+        : "Mathematical expression calculator with parsing, evaluation and tree graphical display.",
       image: "/expressions_javafx.png",
-      tags: ["Java", "JavaFX", "Parser", "POO"],
+      tags: ["Java", "JavaFX", "Parser", "OOP"],
       github: "https://github.com/bikelalif/expressions-javafx",
       demoUrl: null,
-      demoInfo: "Application desktop"
+      demoInfo: language === 'fr' ? "Application desktop" : "Desktop application"
     },
     {
       slug: "editeur-texte-ocaml",
-      title: "Éditeur de Texte OCaml",
-      description: "Éditeur de texte interactif avec interface graphique. Structure de données basée sur les zippers.",
+      title: language === 'fr' ? "Éditeur de Texte OCaml" : "OCaml Text Editor",
+      description: language === 'fr'
+        ? "Éditeur de texte interactif avec interface graphique. Structure de données basée sur les zippers."
+        : "Interactive text editor with graphical interface. Data structure based on zippers.",
       image: "/editeur_ocaml.png",
-      tags: ["OCaml", "Graphics", "Zippers", "Fonctionnel"],
+      tags: ["OCaml", "Graphics", "Zippers", language === 'fr' ? "Fonctionnel" : "Functional"],
       github: "https://github.com/bikelalif/editeur-texte-ocaml",
       demoUrl: null,
-      demoInfo: "Application desktop"
+      demoInfo: language === 'fr' ? "Application desktop" : "Desktop application"
     },
     {
       slug: "jeu-de-cartes-c",
-      title: "Jeu de Cartes en C",
-      description: "Jeu de cartes interactif avec gestion des joueurs, plateau et stratégies. Documentation Doxygen.",
+      title: language === 'fr' ? "Jeu de Cartes en C" : "Card Game in C",
+      description: language === 'fr'
+        ? "Jeu de cartes interactif avec gestion des joueurs, plateau et stratégies. Documentation Doxygen."
+        : "Interactive card game with player, board and strategy management. Doxygen documentation.",
       image: "/jeu_cartes_c.png",
-      tags: ["C", "Makefile", "Doxygen", "Algorithmique"],
+      tags: ["C", "Makefile", "Doxygen", language === 'fr' ? "Algorithmique" : "Algorithms"],
       github: "https://github.com/bikelalif/jeu-de-cartes-c",
       demoUrl: null,
-      demoInfo: "Application console"
+      demoInfo: language === 'fr' ? "Application console" : "Console application"
     }
   ];
 
   return (
     <section id="portfolio" className="bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-slate-700/50">
-      <h2 className="mb-6 text-slate-200">Projets</h2>
+      <h2 className="mb-6 text-slate-200">{t('portfolio.title')}</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <div
@@ -89,7 +104,7 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
               {/* Overlay "Voir le projet" au survol */}
               <div className="absolute inset-0 bg-slate-900/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="flex items-center gap-2 text-white font-medium">
-                  Voir le projet
+                  {t('portfolio.details')}
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
@@ -123,7 +138,7 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
                     className="flex items-center gap-1 text-sm text-green-400 hover:text-green-300 transition-colors"
                   >
                     <Play className="w-4 h-4" />
-                    Démo
+                    Demo
                   </button>
                 )}
                 {!project.demoUrl && project.demoInfo && (

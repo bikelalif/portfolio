@@ -1,62 +1,74 @@
 import { GraduationCap, X, Calendar, MapPin, Award } from 'lucide-react';
 import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Education() {
   const [selectedEducation, setSelectedEducation] = useState<number | null>(null);
+  const { t } = useLanguage();
 
   const education = [
     {
-      degree: "Diplôme d'Ingénieur en Génie Logiciel",
-      school: "ENSIIE - École Nationale Supérieure d'Informatique",
-      period: "2024 - En cours",
-      location: "Évry, France",
-      description: "Formation d'ingénieur spécialisée en informatique et génie logiciel",
+      degree: t('education.laval.degree'),
+      school: t('education.laval.school'),
+      period: t('education.laval.period'),
+      location: t('education.laval.location'),
+      description: t('education.laval.description'),
+      image: "/ulaval.png",
+      details: [
+        t('education.laval.detail1'),
+        t('education.laval.detail2'),
+        t('education.laval.detail3'),
+        t('education.laval.detail4'),
+        t('education.laval.detail5')
+      ],
+      achievements: [t('education.laval.achievement')]
+    },
+    {
+      degree: t('education.ensiie.degree'),
+      school: t('education.ensiie.school'),
+      period: t('education.ensiie.period'),
+      location: t('education.ensiie.location'),
+      description: t('education.ensiie.description'),
       image: "/ensiie_logo.png",
       details: [
-        "Architecture logicielle et design patterns",
-        "Développement d'applications web et mobiles",
-        "Algorithmique avancée et structures de données",
-        "Intelligence artificielle et Machine Learning",
-        "Gestion de projets informatiques"
+        t('education.ensiie.detail1'),
+        t('education.ensiie.detail2'),
+        t('education.ensiie.detail3'),
+        t('education.ensiie.detail4'),
+        t('education.ensiie.detail5')
       ],
-      achievements: [
-        "En cours"
-      ]
+      achievements: [t('education.ensiie.achievement')]
     },
     {
-      degree: "CPGE - Classes Préparatoires",
-      school: "Lycée Albert Schweitzer",
-      period: "2021 - 2024",
-      location: "Le Raincy, France",
-      description: "Filière Physique-Chimie (PC) - Niveau Bac+2",
+      degree: t('education.cpge.degree'),
+      school: t('education.cpge.school'),
+      period: t('education.cpge.period'),
+      location: t('education.cpge.location'),
+      description: t('education.cpge.description'),
       image: "/cpge_logo.jpg",
       details: [
-        "Mathématiques approfondies",
-        "Physique et Chimie",
-        "Informatique (Python, algorithmique)",
-        "Sciences de l'ingénieur",
-        "Préparation aux concours des grandes écoles"
+        t('education.cpge.detail1'),
+        t('education.cpge.detail2'),
+        t('education.cpge.detail3'),
+        t('education.cpge.detail4'),
+        t('education.cpge.detail5')
       ],
-      achievements: [
-        "Admission à l'ENSIIE"
-      ]
+      achievements: [t('education.cpge.achievement')]
     },
     {
-      degree: "Baccalauréat Général",
-      school: "Lycée Honoré de Balzac",
-      period: "2018 - 2021",
-      location: "Mitry-Mory, France",
-      description: "Spécialités Physique-Chimie et Mathématiques",
-      image: "/image_noire.jpg",
+      degree: t('education.bac.degree'),
+      school: t('education.bac.school'),
+      period: t('education.bac.period'),
+      location: t('education.bac.location'),
+      description: t('education.bac.description'),
+      image: null,
       details: [
-        "Spécialité Mathématiques",
-        "Spécialité Physique-Chimie",
-        "Option Mathématiques Expertes"
+        t('education.bac.detail1'),
+        t('education.bac.detail2'),
+        t('education.bac.detail3')
       ],
-      achievements: [
-        "Mention Bien"
-      ]
+      achievements: []
     }
   ];
 
@@ -65,7 +77,7 @@ export function Education() {
       <section id="education" className="bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-slate-700/50">
         <h2 className="mb-6 text-slate-200 flex items-center gap-3">
           <GraduationCap className="w-8 h-8 text-slate-400" />
-          Formation
+          {t('education.title')}
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
           {education.map((edu, index) => (
@@ -84,7 +96,7 @@ export function Education() {
                 <p className="text-slate-400 mb-2">{edu.school}</p>
                 <p className="text-gray-400 text-sm line-clamp-2">{edu.description}</p>
                 <div className="mt-4 inline-flex items-center gap-2 text-sm text-slate-400 group-hover:text-slate-300">
-                  <span>Voir les détails</span>
+                  <span>{t('education.details')}</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </div>
@@ -109,13 +121,15 @@ export function Education() {
               </button>
             </div>
             
-            <div className="h-64 overflow-hidden bg-slate-700 flex items-center justify-center">
-              <ImageWithFallback
-                src={education[selectedEducation].image}
-                alt={education[selectedEducation].school}
-                className="max-w-full max-h-full object-contain p-4"
-              />
-            </div>
+            {education[selectedEducation].image && (
+              <div className="h-64 overflow-hidden bg-slate-700 flex items-center justify-center">
+                <ImageWithFallback
+                  src={education[selectedEducation].image}
+                  alt={education[selectedEducation].school}
+                  className="max-w-full max-h-full object-contain p-4"
+                />
+              </div>
+            )}
 
             <div className="p-6 space-y-6">
               <div className="flex flex-wrap gap-4 text-sm text-gray-300">
@@ -130,7 +144,7 @@ export function Education() {
               </div>
 
               <div>
-                <h4 className="text-white mb-3">Programme</h4>
+                <h4 className="text-white mb-3">{t('education.program')}</h4>
                 <ul className="space-y-2">
                   {education[selectedEducation].details.map((detail, idx) => (
                     <li key={idx} className="text-gray-300 flex items-start gap-2">
@@ -141,22 +155,24 @@ export function Education() {
                 </ul>
               </div>
 
-              <div>
-                <h4 className="text-white mb-3 flex items-center gap-2">
-                  <Award className="w-5 h-5 text-slate-400" />
-                  Distinctions
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {education[selectedEducation].achievements.map((achievement, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-slate-600/30 text-slate-300 px-3 py-1 rounded-full text-sm border border-slate-500/30"
-                    >
-                      {achievement}
-                    </span>
-                  ))}
+              {education[selectedEducation].achievements.length > 0 && (
+                <div>
+                  <h4 className="text-white mb-3 flex items-center gap-2">
+                    <Award className="w-5 h-5 text-slate-400" />
+                    {t('education.achievements')}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {education[selectedEducation].achievements.map((achievement, idx) => (
+                      <span
+                        key={idx}
+                        className="bg-slate-600/30 text-slate-300 px-3 py-1 rounded-full text-sm border border-slate-500/30"
+                      >
+                        {achievement}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

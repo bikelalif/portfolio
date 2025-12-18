@@ -1,32 +1,35 @@
 import { Code2, Database, Palette, Wrench } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Skills() {
+  const { t } = useLanguage();
+  
   const skillCategories = [
     {
       icon: Code2,
-      title: "Langages de Programmation",
+      title: t('skills.languages'),
       skills: ["Python", "Java", "C", "JavaScript", "TypeScript", "SQL", "HTML/CSS", "PHP", "R", "OCaml", "Groovy"]
     },
     {
       icon: Wrench,
-      title: "Frameworks & Outils",
+      title: t('skills.frameworks'),
       skills: ["React", "Flask", "JavaFX", "PyQt5", "Maven", "Git", "Docker", "VS Code"]
     },
     {
       icon: Database,
-      title: "Base de Données",
+      title: t('skills.databases'),
       skills: ["PostgreSQL", "MySQL", "SQLite", "MongoDB"]
     },
     {
       icon: Palette,
-      title: "Langues",
-      skills: ["Français (natif)", "Anglais (avancé)"]
+      title: t('skills.spoken'),
+      skills: [t('skills.french'), t('skills.english')]
     }
   ];
 
   return (
     <section id="skills" className="bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-slate-700/50">
-      <h2 className="mb-6 text-slate-200">Compétences</h2>
+      <h2 className="mb-6 text-slate-200">{t('skills.title')}</h2>
       <div className="grid md:grid-cols-2 gap-6">
         {skillCategories.map((category, index) => {
           const Icon = category.icon;

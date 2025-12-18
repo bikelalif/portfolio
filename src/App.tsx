@@ -6,15 +6,19 @@ import { Education } from './components/Education';
 import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
 import { Portfolio } from './components/Portfolio';
+import { Documents } from './components/Documents';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ProjectPage } from './components/ProjectPage';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { LanguageSwitch } from './components/LanguageSwitch';
 
 function HomePage() {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <LanguageSwitch />
       <Header />
       <Navigation />
       <main className="max-w-6xl mx-auto px-4 py-8 space-y-12">
@@ -23,6 +27,7 @@ function HomePage() {
         <Experience />
         <Skills />
         <Portfolio onProjectClick={(slug) => navigate(`/projet/${slug}`)} />
+        <Documents />
         <Contact />
       </main>
       <Footer />
@@ -48,11 +53,13 @@ function ProjectPageWrapper() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projet/:slug" element={<ProjectPageWrapper />} />
-      </Routes>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projet/:slug" element={<ProjectPageWrapper />} />
+        </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }

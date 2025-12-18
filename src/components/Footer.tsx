@@ -1,6 +1,9 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Footer() {
+  const { t } = useLanguage();
+  
   const socialLinks = [
     { icon: Github, url: "https://github.com/bikelalif", label: "GitHub" },
     { icon: Linkedin, url: "https://fr.linkedin.com/in/bilal-kefif-94400015a", label: "LinkedIn" },
@@ -29,8 +32,8 @@ export function Footer() {
             })}
           </div>
           <div className="text-center text-gray-400 text-sm">
-            <p>© 2025 Bilal KEFIF. Tous droits réservés.</p>
-            <p className="mt-2">Développé avec React & Tailwind CSS</p>
+            <p>{t('footer.rights')}</p>
+            <p className="mt-2">{t('footer.built')}</p>
           </div>
         </div>
       </div>

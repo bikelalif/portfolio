@@ -1,16 +1,19 @@
-import { User, GraduationCap, Briefcase, Code, FolderGit2, Mail } from 'lucide-react';
+import { User, GraduationCap, Briefcase, Code, FolderGit2, Mail, FileText } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export function Navigation() {
   const [activeSection, setActiveSection] = useState('about');
+  const { t } = useLanguage();
 
   const navItems = [
-    { id: 'about', label: 'À Propos', icon: User },
-    { id: 'education', label: 'Formation', icon: GraduationCap },
-    { id: 'experience', label: 'Expérience', icon: Briefcase },
-    { id: 'skills', label: 'Compétences', icon: Code },
-    { id: 'portfolio', label: 'Projets', icon: FolderGit2 },
-    { id: 'contact', label: 'Contact', icon: Mail }
+    { id: 'about', label: t('nav.about'), icon: User },
+    { id: 'education', label: t('nav.education'), icon: GraduationCap },
+    { id: 'experience', label: t('nav.experience'), icon: Briefcase },
+    { id: 'skills', label: t('nav.skills'), icon: Code },
+    { id: 'portfolio', label: t('nav.projects'), icon: FolderGit2 },
+    { id: 'documents', label: t('nav.documents'), icon: FileText },
+    { id: 'contact', label: t('nav.contact'), icon: Mail }
   ];
 
   useEffect(() => {
