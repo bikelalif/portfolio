@@ -1,0 +1,5 @@
+<map id="Patient" name="Patient">
+<area shape="rect" id="Node000001" title="Classe représentant un patient du système de gestion médical." alt="" coords="5,499,183,824"/>
+<area shape="rect" id="Node000002" href="$classPersonne.html" title="Classe de base représentant une personne Les attributs id, nom, prenom et date_naissance sont constan..." alt="" coords="13,5,175,451"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,464,97,498,91,498,91,464"/>
+</map>

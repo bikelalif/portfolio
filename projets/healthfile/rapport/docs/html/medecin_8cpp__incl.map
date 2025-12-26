@@ -1,0 +1,33 @@
+<map id="src/medecin.cpp" name="src/medecin.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="245,5,373,31"/>
+<area shape="rect" id="Node000002" href="$medecin_8h.html" title=" " alt="" coords="141,79,231,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,33,219,74,216,69,288,28"/>
+<area shape="rect" id="Node000008" href="$patient_8h.html" title=" " alt="" coords="269,79,349,104"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="311,31,311,65,306,65,306,31"/>
+<area shape="rect" id="Node000010" href="$clinique_8h.html" title=" " alt="" coords="373,79,458,104"/>
+<area shape="poly" id="edge19_Node000001_Node000010" title=" " alt="" coords="327,28,388,69,385,73,324,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="183,225,299,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="165,106,143,120,123,137,111,157,111,166,115,176,140,201,172,218,170,223,137,205,110,179,106,167,106,155,119,134,139,116,162,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="432,225,503,251"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="206,102,335,175,428,218,426,222,333,180,204,107"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,225,68,251"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="141,98,109,103,76,113,45,129,20,153,15,167,15,182,25,212,20,214,9,183,9,166,16,151,42,125,74,108,108,98,140,92"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="347,152,401,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="217,102,335,146,333,151,215,107"/>
+<area shape="rect" id="Node000007" href="$personne_8h.html" title=" " alt="" coords="125,152,220,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="186,105,180,139,175,138,181,104"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="186,176,222,213,218,217,182,180"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="221,175,419,222,418,228,219,180"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="152,180,72,221,70,217,150,175"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="306,106,254,214,249,212,301,103"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="349,100,456,128,523,150,529,168,524,187,511,204,496,218,493,215,507,200,519,184,524,169,519,154,454,133,348,105"/>
+<area shape="poly" id="edge13_Node000008_Node000005" title=" " alt="" coords="269,105,183,128,142,141,114,154,80,184,54,215,50,212,76,180,111,150,140,136,181,123,268,100"/>
+<area shape="poly" id="edge14_Node000008_Node000006" title=" " alt="" coords="321,103,356,140,352,144,317,106"/>
+<area shape="poly" id="edge15_Node000008_Node000007" title=" " alt="" coords="288,106,208,148,206,143,286,102"/>
+<area shape="rect" id="Node000009" href="$allergie_8h.html" title=" " alt="" coords="426,152,509,177"/>
+<area shape="poly" id="edge16_Node000008_Node000009" title=" " alt="" coords="335,102,430,144,428,149,333,106"/>
+<area shape="poly" id="edge17_Node000009_Node000003" title=" " alt="" coords="432,180,291,224,290,219,430,175"/>
+<area shape="poly" id="edge18_Node000009_Node000004" title=" " alt="" coords="470,178,470,212,465,212,465,178"/>
+<area shape="poly" id="edge20_Node000010_Node000004" title=" " alt="" coords="459,94,487,100,517,111,545,127,567,151,572,162,572,173,560,192,539,209,514,222,512,217,536,204,556,189,567,172,567,163,562,153,541,132,515,116,486,106,458,99"/>
+<area shape="poly" id="edge21_Node000010_Node000006" title=" " alt="" coords="411,106,390,141,385,139,406,103"/>
+</map>

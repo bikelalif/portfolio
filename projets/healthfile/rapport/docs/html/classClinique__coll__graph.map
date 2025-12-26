@@ -1,0 +1,9 @@
+<map id="Clinique" name="Clinique">
+<area shape="rect" id="Node000001" title="Classe représentant une clinique médicale." alt="" coords="41,177,285,443"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,68,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,70,83,152,87,161,83,164,78,154,45,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="92,5,235,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="166,71,166,161,161,161,161,71"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="259,5,393,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="309,72,253,165,249,162,305,69"/>
+</map>

@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SGM - Système de Gestion Médicale:  Fichier source de header/mainwindow.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="healthfile.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">SGM - Système de Gestion Médicale<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Application de gestion de fiches patients, médecins et cliniques</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('mainwindow_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">mainwindow.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="mainwindow_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MAINWINDOW_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MAINWINDOW_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;QListWidgetItem&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QListWidget&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;QList&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="patient_8h.html">patient.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="medecin_8h.html">medecin.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="clinique_8h.html">clinique.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="allergie_8h.html">allergie.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>QT_BEGIN_NAMESPACE</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceUi.html">   14</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceUi.html">Ui</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">class </span><a class="code hl_class" href="classMainWindow.html">MainWindow</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>}</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>QT_END_NAMESPACE</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * @class MainWindow</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * @brief Fenêtre principale de l&#39;application de gestion médicale</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * @details Cette classe hérite de QMainWindow et implémente l&#39;interface utilisateur principale</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> *          du système de gestion de fiches patients (SGM). Elle gère les opérations CRUD</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> *          (Create, Read, Update, Delete) pour les patients, médecins, cliniques et allergies,</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> *          ainsi que l&#39;import/export de données au format JSON.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @author Bilal Kefif et Soni Dhiediou</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @version 1.0</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * @date 2024</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * Fonctionnalités principales:</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * - Gestion complète des patients avec leurs allergies et hospitalisations</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * - Gestion des médecins et de leurs spécialisations</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * - Gestion des cliniques et des relations médecin-clinique</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * - Gestion des allergies</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * - Recherche et filtrage en temps réel</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * - Import/Export JSON avec préservation des relations bidirectionnelles</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * - Interface graphique avec bulles personnalisées pour chaque entité</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classMainWindow.html">   40</a></span><span class="keyword">class </span><a class="code hl_class" href="classMainWindow.html">MainWindow</a> : <span class="keyword">public</span> <a class="code hl_class" href="classQMainWindow.html">QMainWindow</a></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    Q_OBJECT</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     * @brief Constructeur de la fenêtre principale</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     * @param parent Widget parent (nullptr par défaut)</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classMainWindow.html">MainWindow</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">     * @brief Destructeur de la fenêtre principale</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">     * @details Libère la mémoire allouée pour l&#39;interface et les entités</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// ========== SLOTS GESTION PATIENTS ==========</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">     * @brief Affiche le formulaire d&#39;ajout d&#39;un nouveau patient</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     * @details Ouvre une boîte de dialogue avec les champs nécessaires pour créer un patient</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a5f6edb4b58b31aae76b8599718638e1a">formulaireAjoutPatient</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">     * @brief Gère le clic sur un patient dans la liste</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">     * @param item L&#39;élément de liste cliqué</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">     * @details Affiche la fiche détaillée du patient avec options de modification/suppression</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a7c96743a666084d2447e9ce37ba42844">onPatientClicked</a>(QListWidgetItem* item);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">     * @brief Affiche le formulaire de modification d&#39;un patient</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">     * @param p Pointeur vers le patient à modifier</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a9f2b8f39e84d116bf6155cbf9ed91e34">ModifierPatient</a>(<a class="code hl_class" href="classPatient.html">Patient</a> *p);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">     * @brief Supprime un patient de la liste</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">     * @param p Pointeur vers le patient à supprimer</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">     * @param index Index du patient dans la liste</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">     * @details Libère la mémoire et met à jour l&#39;affichage</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#aff850f022332f4743222ed97ed143dda">SupprimerPatient</a>(<a class="code hl_class" href="classPatient.html">Patient</a> *p, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">     * @brief Recherche des patients selon un texte</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">     * @param texte Texte de recherche (nom, prénom, email, etc.)</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     * @details Filtre la liste en temps réel</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a2709fd6255a2097e0a46d08000e1aade">rechercherPatient</a>(<span class="keyword">const</span> QString&amp; texte);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// ========== SLOTS GESTION MEDECINS ==========</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">     * @brief Affiche le formulaire d&#39;ajout d&#39;un nouveau médecin</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a338b36969b3627e7f74aeec3a36dc592">formulaireAjoutMedecin</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">     * @brief Gère le clic sur un médecin dans la liste</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">     * @param item L&#39;élément de liste cliqué</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#ac15ccff938ac074e6c58ec4982e22857">onMedecinClicked</a>(QListWidgetItem* item);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">     * @brief Affiche le formulaire de modification d&#39;un médecin</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">     * @param m Pointeur vers le médecin à modifier</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a82f8b771ad729489d9aa99dd076a8aba">ModifierMedecin</a>(<a class="code hl_class" href="classMedecin.html">Medecin</a> *m);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">     * @brief Supprime un médecin de la liste</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">     * @param m Pointeur vers le médecin à supprimer</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">     * @param index Index du médecin dans la liste</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a1422e49403e98de5d6998648e8279634">SupprimerMedecin</a>(<a class="code hl_class" href="classMedecin.html">Medecin</a> *m, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">     * @brief Recherche des médecins selon un texte</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">     * @param texte Texte de recherche</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#abf57bef943e9b0a4a18a5d39f81c6f41">rechercherMedecin</a>(<span class="keyword">const</span> QString&amp; texte);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="comment">// ========== SLOTS GESTION CLINIQUES ==========</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">     * @brief Affiche le formulaire d&#39;ajout d&#39;une nouvelle clinique</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#aa68e1ff41d56861f2ff4b74de22726e5">formulaireAjoutClinique</a>();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">     * @brief Gère le clic sur une clinique dans la liste</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">     * @param item L&#39;élément de liste cliqué</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#af89da49c6f5bbf5c820734ff2d9086ee">onCliniqueClicked</a>(QListWidgetItem* item);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">     * @brief Affiche le formulaire de modification d&#39;une clinique</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">     * @param c Pointeur vers la clinique à modifier</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a4cfe6ef7e832c82d8710bb592307d43b">ModifierClinique</a>(<a class="code hl_class" href="classClinique.html">Clinique</a> *c);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">     * @brief Supprime une clinique de la liste</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">     * @param c Pointeur vers la clinique à supprimer</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">     * @param index Index de la clinique dans la liste</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#ad0641e84a592b8e803102508f9fd2b83">SupprimerClinique</a>(<a class="code hl_class" href="classClinique.html">Clinique</a> *c, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">     * @brief Recherche des cliniques selon un texte</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">     * @param texte Texte de recherche</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a00fc67492411a80ed010a5e476e84bf5">rechercherClinique</a>(<span class="keyword">const</span> QString&amp; texte);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="comment">// ========== SLOTS GESTION ALLERGIES ==========</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">     * @brief Affiche le formulaire d&#39;ajout d&#39;une nouvelle allergie</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a7c549dff0bee2d53b5712e6db0d2e249">formulaireAjoutAllergie</a>();</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">     * @brief Gère le clic sur une allergie dans la liste</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">     * @param item L&#39;élément de liste cliqué</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#abe8558b7327e15b0d01a4df50429640c">onAllergieClicked</a>(QListWidgetItem* item);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">     * @brief Affiche le formulaire de modification d&#39;une allergie</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">     * @param index Index de l&#39;allergie dans la liste</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#aeeb59fa0e2f496c176ddb4aa0a2a87d2">ModifierAllergie</a>(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment">     * @brief Supprime une allergie de la liste</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">     * @param index Index de l&#39;allergie dans la liste</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#aa2c3fbcb372aad62044a10a278775394">SupprimerAllergie</a>(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">     * @brief Recherche des allergies selon un texte</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">     * @param texte Texte de recherche</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a628d67ff7f4466d8adf92a06cb0b52f2">rechercherAllergie</a>(<span class="keyword">const</span> QString&amp; texte);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="comment">// ========== SLOTS IMPORT/EXPORT ==========</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">     * @brief Exporte toutes les données au format JSON</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">     * @details Sauvegarde patients, médecins, cliniques, allergies et leurs relations</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a3eb4d31fdb4b06196b213ec54b8ba79b">exporterDonnees</a>();</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">     * @brief Importe des données depuis un fichier JSON</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">     * @details Restaure toutes les entités et leurs relations bidirectionnelles</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#acd39cacf7f931b7480a11b624a61f0c4">importerDonnees</a>();</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="comment">// ========== SLOT À PROPOS ==========</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment">     * @brief Affiche la boîte de dialogue &quot;À propos&quot;</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">     * @details Présente l&#39;application, la version et les auteurs</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a7f02b7cd35c647713e81990f83cde0a6">afficherAPropos</a>();</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="classMainWindow.html#a35466a70ed47252a0191168126a352a5">  212</a></span>    Ui::MainWindow *<a class="code hl_variable" href="classMainWindow.html#a35466a70ed47252a0191168126a352a5">ui</a>;  <span class="comment">///&lt; Interface utilisateur générée par Qt Designer</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="comment">// ========== COLLECTIONS DE DONNÉES ==========</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="classMainWindow.html#a2de6d043cfee66316af654dbfe14d4a2">  216</a></span>    QList&lt;Patient*&gt; <a class="code hl_variable" href="classMainWindow.html#a2de6d043cfee66316af654dbfe14d4a2">patients</a>;      <span class="comment">///&lt; Liste des patients (allocation dynamique)</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="classMainWindow.html#a40150901884b6c432edc58e90e30e08e">  217</a></span>    QList&lt;Medecin*&gt; <a class="code hl_variable" href="classMainWindow.html#a40150901884b6c432edc58e90e30e08e">medecins</a>;      <span class="comment">///&lt; Liste des médecins (allocation dynamique)</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="classMainWindow.html#a0074490e65c4812c945ce1f37292063c">  218</a></span>    QList&lt;Clinique*&gt; <a class="code hl_variable" href="classMainWindow.html#a0074490e65c4812c945ce1f37292063c">cliniques</a>;    <span class="comment">///&lt; Liste des cliniques (allocation dynamique)</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="classMainWindow.html#a7a6a6202878f65f952b398f414cb03fd">  219</a></span>    QList&lt;Allergie&gt; <a class="code hl_variable" href="classMainWindow.html#a7a6a6202878f65f952b398f414cb03fd">allergies</a>;     <span class="comment">///&lt; Liste des allergies (objets valeur)</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="comment">// ========== MÉTHODES PRIVÉES - PATIENTS ==========</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">     * @brief Rafraîchit l&#39;affichage de la liste des patients</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a10cc8540fdfcb3759badd5e8cee67fc0">afficherPatients</a>();</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">     * @brief Crée un widget personnalisé (bulle) pour afficher un patient</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment">     * @param p Pointeur vers le patient</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">     * @return Widget personnalisé contenant les infos du patient</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    QWidget* <a class="code hl_function" href="classMainWindow.html#a8f7c6f26936ea58776f09c8380a2871f">creerBullePatient</a>(<a class="code hl_class" href="classPatient.html">Patient</a>* p);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">     * @brief Ajoute un patient à la collection</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">     * @param p Pointeur vers le patient à ajouter</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a16c2f26b553ca005628ca5bd56517d97">ajouterPatient</a>(<a class="code hl_class" href="classPatient.html">Patient</a>* p);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="comment">// ========== MÉTHODES PRIVÉES - MEDECINS ==========</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="comment">     * @brief Rafraîchit l&#39;affichage de la liste des médecins</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a725cce99ed235977a05f0379e2b14c92">afficherMedecins</a>();</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment">     * @brief Crée un widget personnalisé pour afficher un médecin</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment">     * @param m Pointeur vers le médecin</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">     * @return Widget personnalisé</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    QWidget* <a class="code hl_function" href="classMainWindow.html#a43ad5eac8af4385c03b759bb1f196220">creerBulleMedecin</a>(<a class="code hl_class" href="classMedecin.html">Medecin</a>* m);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment">     * @brief Ajoute un médecin à la collection</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment">     * @param m Pointeur vers le médecin à ajouter</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a5b2e01456c12f3fba9f0d1f0ff54736d">ajouterMedecin</a>(<a class="code hl_class" href="classMedecin.html">Medecin</a>* m);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="comment">// ========== MÉTHODES PRIVÉES - CLINIQUES ==========</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment">     * @brief Rafraîchit l&#39;affichage de la liste des cliniques</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#aee1fc8ff5423b1973bb09fc2f0c0babc">afficherCliniques</a>();</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment">     * @brief Crée un widget personnalisé pour afficher une clinique</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment">     * @param c Pointeur vers la clinique</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment">     * @return Widget personnalisé</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    QWidget* <a class="code hl_function" href="classMainWindow.html#a310fc896502ddabd886c0a6a33175019">creerBulleClinique</a>(<a class="code hl_class" href="classClinique.html">Clinique</a>* c);</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="comment">     * @brief Ajoute une clinique à la collection</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="comment">     * @param c Pointeur vers la clinique à ajouter</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a9d7af4bd596a5f7a3c1fadd6d55467c5">ajouterClinique</a>(<a class="code hl_class" href="classClinique.html">Clinique</a>* c);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <span class="comment">// ========== MÉTHODES PRIVÉES - ALLERGIES ==========</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment">     * @brief Rafraîchit l&#39;affichage de la liste des allergies</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a1c6dc05c2d0fb2c966223e511edfca7b">afficherAllergies</a>();</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment">     * @brief Crée un widget personnalisé pour afficher une allergie</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="comment">     * @param a Pointeur vers l&#39;allergie</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment">     * @return Widget personnalisé</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    QWidget* <a class="code hl_function" href="classMainWindow.html#acf7c394b39a1b710de5184339b4645f3">creerBulleAllergie</a>(<a class="code hl_class" href="classAllergie.html">Allergie</a>* a);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment">     * @brief Ajoute une allergie à la collection</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="comment">     * @param a Référence vers l&#39;allergie à ajouter</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#abb7e02b8e9f2e96d6a2bf5ac6262a3c9">ajouterAllergie</a>(<span class="keyword">const</span> <a class="code hl_class" href="classAllergie.html">Allergie</a>&amp; a);</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="comment">// ========== MÉTHODES DE FILTRAGE ==========</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="comment">     * @brief Filtre une liste de médecins selon un texte</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment">     * @param liste Widget de liste à filtrer</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment">     * @param texte Texte de recherche</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#aa3facde34dd9ec76ebaf55606d29bb15">filtrerListeMedecins</a>(QListWidget* liste, <span class="keyword">const</span> QString&amp; texte);</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="comment">     * @brief Filtre une liste de cliniques selon un texte</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment">     * @param liste Widget de liste à filtrer</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="comment">     * @param texte Texte de recherche</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#aaea1825dcfb294f07d47d46bec27b6ec">filtrerListeCliniques</a>(QListWidget* liste, <span class="keyword">const</span> QString&amp; texte);</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="comment">     * @brief Filtre une liste d&#39;allergies selon un texte</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="comment">     * @param liste Widget de liste à filtrer</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="comment">     * @param texte Texte de recherche</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classMainWindow.html#a791029e0a4b6dfefa2b5f3b47bd8d9c8">filtrerListeAllergies</a>(QListWidget* liste, <span class="keyword">const</span> QString&amp; texte);</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>};</div>
+</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="preprocessor">#endif </span><span class="comment">// MAINWINDOW_H</span></div>
+<div class="ttc" id="aallergie_8h_html"><div class="ttname"><a href="allergie_8h.html">allergie.h</a></div></div>
+<div class="ttc" id="aclassAllergie_html"><div class="ttname"><a href="classAllergie.html">Allergie</a></div><div class="ttdoc">Classe représentant une allergie avec son nom et sa description.</div><div class="ttdef"><b>Definition</b> <a href="allergie_8h_source.html#l00010">allergie.h:10</a></div></div>
+<div class="ttc" id="aclassClinique_html"><div class="ttname"><a href="classClinique.html">Clinique</a></div><div class="ttdoc">Classe représentant une clinique médicale.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8h_source.html#l00016">clinique.h:16</a></div></div>
+<div class="ttc" id="aclassMainWindow_html"><div class="ttname"><a href="classMainWindow.html">MainWindow</a></div><div class="ttdoc">Fenêtre principale de l'application de gestion médicale.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00040">mainwindow.h:41</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a0074490e65c4812c945ce1f37292063c"><div class="ttname"><a href="classMainWindow.html#a0074490e65c4812c945ce1f37292063c">MainWindow::cliniques</a></div><div class="ttdeci">QList&lt; Clinique * &gt; cliniques</div><div class="ttdoc">Liste des cliniques (allocation dynamique)</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00218">mainwindow.h:218</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a00fc67492411a80ed010a5e476e84bf5"><div class="ttname"><a href="classMainWindow.html#a00fc67492411a80ed010a5e476e84bf5">MainWindow::rechercherClinique</a></div><div class="ttdeci">void rechercherClinique(const QString &amp;texte)</div><div class="ttdoc">Recherche des cliniques selon un texte.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01705">mainwindow.cpp:1705</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a10cc8540fdfcb3759badd5e8cee67fc0"><div class="ttname"><a href="classMainWindow.html#a10cc8540fdfcb3759badd5e8cee67fc0">MainWindow::afficherPatients</a></div><div class="ttdeci">void afficherPatients()</div><div class="ttdoc">Rafraîchit l'affichage de la liste des patients.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00123">mainwindow.cpp:123</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a1422e49403e98de5d6998648e8279634"><div class="ttname"><a href="classMainWindow.html#a1422e49403e98de5d6998648e8279634">MainWindow::SupprimerMedecin</a></div><div class="ttdeci">void SupprimerMedecin(Medecin *m, int index)</div><div class="ttdoc">Supprime un médecin de la liste.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01201">mainwindow.cpp:1201</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a16c2f26b553ca005628ca5bd56517d97"><div class="ttname"><a href="classMainWindow.html#a16c2f26b553ca005628ca5bd56517d97">MainWindow::ajouterPatient</a></div><div class="ttdeci">void ajouterPatient(Patient *p)</div><div class="ttdoc">Ajoute un patient à la collection.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00136">mainwindow.cpp:136</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a1c6dc05c2d0fb2c966223e511edfca7b"><div class="ttname"><a href="classMainWindow.html#a1c6dc05c2d0fb2c966223e511edfca7b">MainWindow::afficherAllergies</a></div><div class="ttdeci">void afficherAllergies()</div><div class="ttdoc">Rafraîchit l'affichage de la liste des allergies.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01483">mainwindow.cpp:1483</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a2709fd6255a2097e0a46d08000e1aade"><div class="ttname"><a href="classMainWindow.html#a2709fd6255a2097e0a46d08000e1aade">MainWindow::rechercherPatient</a></div><div class="ttdeci">void rechercherPatient(const QString &amp;texte)</div><div class="ttdoc">Recherche des patients selon un texte.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01616">mainwindow.cpp:1616</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a2de6d043cfee66316af654dbfe14d4a2"><div class="ttname"><a href="classMainWindow.html#a2de6d043cfee66316af654dbfe14d4a2">MainWindow::patients</a></div><div class="ttdeci">QList&lt; Patient * &gt; patients</div><div class="ttdoc">Liste des patients (allocation dynamique)</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00216">mainwindow.h:216</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a310fc896502ddabd886c0a6a33175019"><div class="ttname"><a href="classMainWindow.html#a310fc896502ddabd886c0a6a33175019">MainWindow::creerBulleClinique</a></div><div class="ttdeci">QWidget * creerBulleClinique(Clinique *c)</div><div class="ttdoc">Crée un widget personnalisé pour afficher une clinique.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01212">mainwindow.cpp:1212</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a338b36969b3627e7f74aeec3a36dc592"><div class="ttname"><a href="classMainWindow.html#a338b36969b3627e7f74aeec3a36dc592">MainWindow::formulaireAjoutMedecin</a></div><div class="ttdeci">void formulaireAjoutMedecin()</div><div class="ttdoc">Affiche le formulaire d'ajout d'un nouveau médecin.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00834">mainwindow.cpp:834</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a35466a70ed47252a0191168126a352a5"><div class="ttname"><a href="classMainWindow.html#a35466a70ed47252a0191168126a352a5">MainWindow::ui</a></div><div class="ttdeci">Ui::MainWindow * ui</div><div class="ttdoc">Interface utilisateur générée par Qt Designer.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00212">mainwindow.h:212</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a3eb4d31fdb4b06196b213ec54b8ba79b"><div class="ttname"><a href="classMainWindow.html#a3eb4d31fdb4b06196b213ec54b8ba79b">MainWindow::exporterDonnees</a></div><div class="ttdeci">void exporterDonnees()</div><div class="ttdoc">Exporte toutes les données au format JSON.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01735">mainwindow.cpp:1735</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a40150901884b6c432edc58e90e30e08e"><div class="ttname"><a href="classMainWindow.html#a40150901884b6c432edc58e90e30e08e">MainWindow::medecins</a></div><div class="ttdeci">QList&lt; Medecin * &gt; medecins</div><div class="ttdoc">Liste des médecins (allocation dynamique)</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00217">mainwindow.h:217</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a43ad5eac8af4385c03b759bb1f196220"><div class="ttname"><a href="classMainWindow.html#a43ad5eac8af4385c03b759bb1f196220">MainWindow::creerBulleMedecin</a></div><div class="ttdeci">QWidget * creerBulleMedecin(Medecin *m)</div><div class="ttdoc">Crée un widget personnalisé pour afficher un médecin.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00790">mainwindow.cpp:790</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a4cfe6ef7e832c82d8710bb592307d43b"><div class="ttname"><a href="classMainWindow.html#a4cfe6ef7e832c82d8710bb592307d43b">MainWindow::ModifierClinique</a></div><div class="ttdeci">void ModifierClinique(Clinique *c)</div><div class="ttdoc">Affiche le formulaire de modification d'une clinique.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01411">mainwindow.cpp:1411</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a5b2e01456c12f3fba9f0d1f0ff54736d"><div class="ttname"><a href="classMainWindow.html#a5b2e01456c12f3fba9f0d1f0ff54736d">MainWindow::ajouterMedecin</a></div><div class="ttdeci">void ajouterMedecin(Medecin *m)</div><div class="ttdoc">Ajoute un médecin à la collection.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00830">mainwindow.cpp:830</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a5f6edb4b58b31aae76b8599718638e1a"><div class="ttname"><a href="classMainWindow.html#a5f6edb4b58b31aae76b8599718638e1a">MainWindow::formulaireAjoutPatient</a></div><div class="ttdeci">void formulaireAjoutPatient()</div><div class="ttdoc">Affiche le formulaire d'ajout d'un nouveau patient.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00140">mainwindow.cpp:140</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a628d67ff7f4466d8adf92a06cb0b52f2"><div class="ttname"><a href="classMainWindow.html#a628d67ff7f4466d8adf92a06cb0b52f2">MainWindow::rechercherAllergie</a></div><div class="ttdeci">void rechercherAllergie(const QString &amp;texte)</div><div class="ttdoc">Recherche des allergies selon un texte.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01721">mainwindow.cpp:1721</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a725cce99ed235977a05f0379e2b14c92"><div class="ttname"><a href="classMainWindow.html#a725cce99ed235977a05f0379e2b14c92">MainWindow::afficherMedecins</a></div><div class="ttdeci">void afficherMedecins()</div><div class="ttdoc">Rafraîchit l'affichage de la liste des médecins.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00817">mainwindow.cpp:817</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a791029e0a4b6dfefa2b5f3b47bd8d9c8"><div class="ttname"><a href="classMainWindow.html#a791029e0a4b6dfefa2b5f3b47bd8d9c8">MainWindow::filtrerListeAllergies</a></div><div class="ttdeci">void filtrerListeAllergies(QListWidget *liste, const QString &amp;texte)</div><div class="ttdoc">Filtre une liste d'allergies selon un texte.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01672">mainwindow.cpp:1672</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a7a6a6202878f65f952b398f414cb03fd"><div class="ttname"><a href="classMainWindow.html#a7a6a6202878f65f952b398f414cb03fd">MainWindow::allergies</a></div><div class="ttdeci">QList&lt; Allergie &gt; allergies</div><div class="ttdoc">Liste des allergies (objets valeur)</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00219">mainwindow.h:219</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a7c549dff0bee2d53b5712e6db0d2e249"><div class="ttname"><a href="classMainWindow.html#a7c549dff0bee2d53b5712e6db0d2e249">MainWindow::formulaireAjoutAllergie</a></div><div class="ttdeci">void formulaireAjoutAllergie()</div><div class="ttdoc">Affiche le formulaire d'ajout d'une nouvelle allergie.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01500">mainwindow.cpp:1500</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a7c96743a666084d2447e9ce37ba42844"><div class="ttname"><a href="classMainWindow.html#a7c96743a666084d2447e9ce37ba42844">MainWindow::onPatientClicked</a></div><div class="ttdeci">void onPatientClicked(QListWidgetItem *item)</div><div class="ttdoc">Gère le clic sur un patient dans la liste.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00390">mainwindow.cpp:390</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a7f02b7cd35c647713e81990f83cde0a6"><div class="ttname"><a href="classMainWindow.html#a7f02b7cd35c647713e81990f83cde0a6">MainWindow::afficherAPropos</a></div><div class="ttdeci">void afficherAPropos()</div><div class="ttdoc">Affiche la boîte de dialogue &quot;À propos&quot;.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l02019">mainwindow.cpp:2019</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a82f8b771ad729489d9aa99dd076a8aba"><div class="ttname"><a href="classMainWindow.html#a82f8b771ad729489d9aa99dd076a8aba">MainWindow::ModifierMedecin</a></div><div class="ttdeci">void ModifierMedecin(Medecin *m)</div><div class="ttdoc">Affiche le formulaire de modification d'un médecin.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01064">mainwindow.cpp:1064</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a8f7c6f26936ea58776f09c8380a2871f"><div class="ttname"><a href="classMainWindow.html#a8f7c6f26936ea58776f09c8380a2871f">MainWindow::creerBullePatient</a></div><div class="ttdeci">QWidget * creerBullePatient(Patient *p)</div><div class="ttdoc">Crée un widget personnalisé (bulle) pour afficher un patient.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00094">mainwindow.cpp:94</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a9d7af4bd596a5f7a3c1fadd6d55467c5"><div class="ttname"><a href="classMainWindow.html#a9d7af4bd596a5f7a3c1fadd6d55467c5">MainWindow::ajouterClinique</a></div><div class="ttdeci">void ajouterClinique(Clinique *c)</div><div class="ttdoc">Ajoute une clinique à la collection.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01252">mainwindow.cpp:1252</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_a9f2b8f39e84d116bf6155cbf9ed91e34"><div class="ttname"><a href="classMainWindow.html#a9f2b8f39e84d116bf6155cbf9ed91e34">MainWindow::ModifierPatient</a></div><div class="ttdeci">void ModifierPatient(Patient *p)</div><div class="ttdoc">Affiche le formulaire de modification d'un patient.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00506">mainwindow.cpp:506</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_aa2c3fbcb372aad62044a10a278775394"><div class="ttname"><a href="classMainWindow.html#aa2c3fbcb372aad62044a10a278775394">MainWindow::SupprimerAllergie</a></div><div class="ttdeci">void SupprimerAllergie(int index)</div><div class="ttdoc">Supprime une allergie de la liste.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01610">mainwindow.cpp:1610</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_aa3facde34dd9ec76ebaf55606d29bb15"><div class="ttname"><a href="classMainWindow.html#aa3facde34dd9ec76ebaf55606d29bb15">MainWindow::filtrerListeMedecins</a></div><div class="ttdeci">void filtrerListeMedecins(QListWidget *liste, const QString &amp;texte)</div><div class="ttdoc">Filtre une liste de médecins selon un texte.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01636">mainwindow.cpp:1636</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_aa68e1ff41d56861f2ff4b74de22726e5"><div class="ttname"><a href="classMainWindow.html#aa68e1ff41d56861f2ff4b74de22726e5">MainWindow::formulaireAjoutClinique</a></div><div class="ttdeci">void formulaireAjoutClinique()</div><div class="ttdoc">Affiche le formulaire d'ajout d'une nouvelle clinique.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01256">mainwindow.cpp:1256</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_aaea1825dcfb294f07d47d46bec27b6ec"><div class="ttname"><a href="classMainWindow.html#aaea1825dcfb294f07d47d46bec27b6ec">MainWindow::filtrerListeCliniques</a></div><div class="ttdeci">void filtrerListeCliniques(QListWidget *liste, const QString &amp;texte)</div><div class="ttdoc">Filtre une liste de cliniques selon un texte.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01654">mainwindow.cpp:1654</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_abb7e02b8e9f2e96d6a2bf5ac6262a3c9"><div class="ttname"><a href="classMainWindow.html#abb7e02b8e9f2e96d6a2bf5ac6262a3c9">MainWindow::ajouterAllergie</a></div><div class="ttdeci">void ajouterAllergie(const Allergie &amp;a)</div><div class="ttdoc">Ajoute une allergie à la collection.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01496">mainwindow.cpp:1496</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_abe8558b7327e15b0d01a4df50429640c"><div class="ttname"><a href="classMainWindow.html#abe8558b7327e15b0d01a4df50429640c">MainWindow::onAllergieClicked</a></div><div class="ttdeci">void onAllergieClicked(QListWidgetItem *item)</div><div class="ttdoc">Gère le clic sur une allergie dans la liste.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01531">mainwindow.cpp:1531</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_abf57bef943e9b0a4a18a5d39f81c6f41"><div class="ttname"><a href="classMainWindow.html#abf57bef943e9b0a4a18a5d39f81c6f41">MainWindow::rechercherMedecin</a></div><div class="ttdeci">void rechercherMedecin(const QString &amp;texte)</div><div class="ttdoc">Recherche des médecins selon un texte.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01687">mainwindow.cpp:1687</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_ac15ccff938ac074e6c58ec4982e22857"><div class="ttname"><a href="classMainWindow.html#ac15ccff938ac074e6c58ec4982e22857">MainWindow::onMedecinClicked</a></div><div class="ttdeci">void onMedecinClicked(QListWidgetItem *item)</div><div class="ttdoc">Gère le clic sur un médecin dans la liste.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00960">mainwindow.cpp:960</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_acd39cacf7f931b7480a11b624a61f0c4"><div class="ttname"><a href="classMainWindow.html#acd39cacf7f931b7480a11b624a61f0c4">MainWindow::importerDonnees</a></div><div class="ttdeci">void importerDonnees()</div><div class="ttdoc">Importe des données depuis un fichier JSON.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01835">mainwindow.cpp:1835</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_acf7c394b39a1b710de5184339b4645f3"><div class="ttname"><a href="classMainWindow.html#acf7c394b39a1b710de5184339b4645f3">MainWindow::creerBulleAllergie</a></div><div class="ttdeci">QWidget * creerBulleAllergie(Allergie *a)</div><div class="ttdoc">Crée un widget personnalisé pour afficher une allergie.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01461">mainwindow.cpp:1461</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_ad0641e84a592b8e803102508f9fd2b83"><div class="ttname"><a href="classMainWindow.html#ad0641e84a592b8e803102508f9fd2b83">MainWindow::SupprimerClinique</a></div><div class="ttdeci">void SupprimerClinique(Clinique *c, int index)</div><div class="ttdoc">Supprime une clinique de la liste.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01450">mainwindow.cpp:1450</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_ae98d00a93bc118200eeef9f9bba1dba7"><div class="ttname"><a href="classMainWindow.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow::~MainWindow</a></div><div class="ttdeci">~MainWindow()</div><div class="ttdoc">Destructeur de la fenêtre principale.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00081">mainwindow.cpp:81</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_aee1fc8ff5423b1973bb09fc2f0c0babc"><div class="ttname"><a href="classMainWindow.html#aee1fc8ff5423b1973bb09fc2f0c0babc">MainWindow::afficherCliniques</a></div><div class="ttdeci">void afficherCliniques()</div><div class="ttdoc">Rafraîchit l'affichage de la liste des cliniques.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01239">mainwindow.cpp:1239</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_aeeb59fa0e2f496c176ddb4aa0a2a87d2"><div class="ttname"><a href="classMainWindow.html#aeeb59fa0e2f496c176ddb4aa0a2a87d2">MainWindow::ModifierAllergie</a></div><div class="ttdeci">void ModifierAllergie(int index)</div><div class="ttdoc">Affiche le formulaire de modification d'une allergie.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01574">mainwindow.cpp:1574</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_af89da49c6f5bbf5c820734ff2d9086ee"><div class="ttname"><a href="classMainWindow.html#af89da49c6f5bbf5c820734ff2d9086ee">MainWindow::onCliniqueClicked</a></div><div class="ttdeci">void onCliniqueClicked(QListWidgetItem *item)</div><div class="ttdoc">Gère le clic sur une clinique dans la liste.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l01295">mainwindow.cpp:1295</a></div></div>
+<div class="ttc" id="aclassMainWindow_html_aff850f022332f4743222ed97ed143dda"><div class="ttname"><a href="classMainWindow.html#aff850f022332f4743222ed97ed143dda">MainWindow::SupprimerPatient</a></div><div class="ttdeci">void SupprimerPatient(Patient *p, int index)</div><div class="ttdoc">Supprime un patient de la liste.</div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8cpp_source.html#l00779">mainwindow.cpp:779</a></div></div>
+<div class="ttc" id="aclassMedecin_html"><div class="ttname"><a href="classMedecin.html">Medecin</a></div><div class="ttdoc">Classe représentant un médecin du système de gestion médical.</div><div class="ttdef"><b>Definition</b> <a href="medecin_8h_source.html#l00019">medecin.h:19</a></div></div>
+<div class="ttc" id="aclassPatient_html"><div class="ttname"><a href="classPatient.html">Patient</a></div><div class="ttdoc">Classe représentant un patient du système de gestion médical.</div><div class="ttdef"><b>Definition</b> <a href="patient_8h_source.html#l00020">patient.h:20</a></div></div>
+<div class="ttc" id="aclassQMainWindow_html"><div class="ttname"><a href="classQMainWindow.html">QMainWindow</a></div></div>
+<div class="ttc" id="aclinique_8h_html"><div class="ttname"><a href="clinique_8h.html">clinique.h</a></div></div>
+<div class="ttc" id="amedecin_8h_html"><div class="ttname"><a href="medecin_8h.html">medecin.h</a></div></div>
+<div class="ttc" id="anamespaceUi_html"><div class="ttname"><a href="namespaceUi.html">Ui</a></div><div class="ttdef"><b>Definition</b> <a href="mainwindow_8h_source.html#l00014">mainwindow.h:14</a></div></div>
+<div class="ttc" id="apatient_8h_html"><div class="ttname"><a href="patient_8h.html">patient.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1ec98ce50fa6ec55b40b8ffb1df38c3c.html">header</a></li><li class="navelem"><a class="el" href="mainwindow_8h.html">mainwindow.h</a></li>
+    <li class="footer">Généré le Dimanche 21 Décembre 2025 21:47:53 pour SGM - Système de Gestion Médicale par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SGM - Système de Gestion Médicale:  Fichier source de header/patient.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="healthfile.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">SGM - Système de Gestion Médicale<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Application de gestion de fiches patients, médecins et cliniques</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('patient_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">patient.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="patient_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PATIENT_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PATIENT_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QDate&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;QList&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="personne_8h.html">personne.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="allergie_8h.html">allergie.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="classMedecin.html">Medecin</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="classClinique.html">Clinique</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"></span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @class Patient</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * @brief Classe représentant un patient du système de gestion médical</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * @details Hérite de Personne et gère les allergies, le médecin traitant et l&#39;hospitalisation.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> *          Un patient peut avoir plusieurs allergies, un médecin traitant et être hospitalisé dans une clinique.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classPatient.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="classPatient.html">Patient</a> : <span class="keyword">public</span> <a class="code hl_class" href="classPersonne.html">Personne</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     * @brief Constructeur de Patient</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">     * @param id Identifiant unique du patient</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">     * @param nom Nom de famille</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">     * @param prenom Prénom</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     * @param date_naissance Date de naissance</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     * @param adresse Adresse postale</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     * @param sexe Sexe (M/F)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     * @param email Adresse email</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     * @param telephone Numéro de téléphone</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="classPatient.html">Patient</a>(<span class="keyword">const</span> QString&amp; <span class="keywordtype">id</span>, <span class="keyword">const</span> QString&amp; <a class="code hl_variable" href="classPersonne.html#adde12f0ca1c308caa666beade83b8bcf">nom</a>, <span class="keyword">const</span> QString&amp; <a class="code hl_variable" href="classPersonne.html#ad55da93969d0a7794966e5d69d3ea46f">prenom</a>,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keyword">const</span> QDate&amp; <a class="code hl_variable" href="classPersonne.html#ae206f6e7d447473f9af67c6e4383353e">date_naissance</a>, <span class="keyword">const</span> QString&amp; <a class="code hl_variable" href="classPersonne.html#a6c6619b4d31ca5262f9cc50dd1c79b7b">adresse</a>,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keyword">const</span> QString&amp; <a class="code hl_variable" href="classPersonne.html#a27e0f28bb9ae0e4255f33dbae7a753ee">sexe</a>, <span class="keyword">const</span> QString&amp; <a class="code hl_variable" href="classPersonne.html#ab148f8573c301109de51e58a66604978">email</a>, <span class="keyword">const</span> QString&amp; <a class="code hl_variable" href="classPersonne.html#a71b1f9f7045b6cab7735a101476c7fe3">telephone</a>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"></span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     * @brief Ajoute une allergie à la fiche du patient</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     * @param allergie L&#39;allergie à ajouter</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPatient.html#adcd99aa0bcf81fbd3e43600654aef4cb">ajouterAllergie</a>(<span class="keyword">const</span> <a class="code hl_class" href="classAllergie.html">Allergie</a>&amp; allergie);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     * @brief Retire une allergie de la fiche du patient</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">     * @param allergie L&#39;allergie à retirer</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPatient.html#a65a9a9f6c34140e5ef82e63d78a4d0a8">retirerAllergie</a>(<span class="keyword">const</span> <a class="code hl_class" href="classAllergie.html">Allergie</a>&amp; allergie);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     * @brief Efface toutes les allergies du patient</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPatient.html#a7199fe1860ab23c9677e03a1b29620f7">clearAllergies</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">     * @brief Récupère la liste des allergies du patient</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">     * @return Liste des allergies</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    QList&lt;Allergie&gt; <a class="code hl_function" href="classPatient.html#a8036a1dc62342d7e1915d4e7a659e1a9">getAllergies</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"></span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">     * @brief Définit le médecin traitant du patient</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     * @param medecin Pointeur vers le médecin traitant</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPatient.html#acaea67239dd2d14abed7ae8f0dc7ba19">setMedecin</a>(<a class="code hl_class" href="classMedecin.html">Medecin</a>* <a class="code hl_variable" href="classPatient.html#a0b4449bc1796312a8b2550bd84e09831">medecin</a>);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">     * @brief Récupère le médecin traitant du patient</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">     * @return Pointeur vers le médecin traitant, nullptr si aucun</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="classMedecin.html">Medecin</a>* <a class="code hl_function" href="classPatient.html#a1622ba4e8256c8e0d63271d16213ac51">getMedecin</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"></span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">     * @brief Hospitalise le patient dans une clinique</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">     * @param clinique Pointeur vers la clinique d&#39;hospitalisation</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPatient.html#aa6881bf8aa7702bb0db8b00e4f8f1bcc">setHospitalisation</a>(<a class="code hl_class" href="classClinique.html">Clinique</a>* <a class="code hl_variable" href="classPatient.html#a105267e5af392dc0301293e3072da2a4">clinique</a>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">     * @brief Termine l&#39;hospitalisation du patient</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPatient.html#ae88910a13050556b336c255f1abdf041">retirerHospitalisation</a>();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     * @brief Récupère la clinique où le patient est hospitalisé</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">     * @return Pointeur vers la clinique, nullptr si pas hospitalisé</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_class" href="classClinique.html">Clinique</a>* <a class="code hl_function" href="classPatient.html#aea1b4dd456b9922595dc002c365ad15d">getClinique</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     * @brief Vérifie si le patient est actuellement hospitalisé</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">     * @return true si hospitalisé, false sinon</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classPatient.html#a357991d8b72aab419f866018bb99941d">estHospitalise</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"></span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">     * @brief Génère une représentation textuelle du patient</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">     * @return Chaîne de caractères formatée</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    QString <a class="code hl_function" href="classPatient.html#a1275038bd9734ec61a01d79786701b59">toString</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classPatient.html#adf785fae1e2f09327992d9c43fa1cfa7">  102</a></span>    QList&lt;Allergie&gt; <a class="code hl_variable" href="classPatient.html#adf785fae1e2f09327992d9c43fa1cfa7">allergies</a>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classPatient.html#a0b4449bc1796312a8b2550bd84e09831">  103</a></span>    <a class="code hl_class" href="classMedecin.html">Medecin</a>* <a class="code hl_variable" href="classPatient.html#a0b4449bc1796312a8b2550bd84e09831">medecin</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classPatient.html#a105267e5af392dc0301293e3072da2a4">  104</a></span>    <a class="code hl_class" href="classClinique.html">Clinique</a>* <a class="code hl_variable" href="classPatient.html#a105267e5af392dc0301293e3072da2a4">clinique</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>};</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#endif </span><span class="comment">// PATIENT_H</span></div>
+<div class="ttc" id="aallergie_8h_html"><div class="ttname"><a href="allergie_8h.html">allergie.h</a></div></div>
+<div class="ttc" id="aclassAllergie_html"><div class="ttname"><a href="classAllergie.html">Allergie</a></div><div class="ttdoc">Classe représentant une allergie avec son nom et sa description.</div><div class="ttdef"><b>Definition</b> <a href="allergie_8h_source.html#l00010">allergie.h:10</a></div></div>
+<div class="ttc" id="aclassClinique_html"><div class="ttname"><a href="classClinique.html">Clinique</a></div><div class="ttdoc">Classe représentant une clinique médicale.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8h_source.html#l00016">clinique.h:16</a></div></div>
+<div class="ttc" id="aclassMedecin_html"><div class="ttname"><a href="classMedecin.html">Medecin</a></div><div class="ttdoc">Classe représentant un médecin du système de gestion médical.</div><div class="ttdef"><b>Definition</b> <a href="medecin_8h_source.html#l00019">medecin.h:19</a></div></div>
+<div class="ttc" id="aclassPatient_html"><div class="ttname"><a href="classPatient.html">Patient</a></div><div class="ttdoc">Classe représentant un patient du système de gestion médical.</div><div class="ttdef"><b>Definition</b> <a href="patient_8h_source.html#l00020">patient.h:20</a></div></div>
+<div class="ttc" id="aclassPatient_html_a0b4449bc1796312a8b2550bd84e09831"><div class="ttname"><a href="classPatient.html#a0b4449bc1796312a8b2550bd84e09831">Patient::medecin</a></div><div class="ttdeci">Medecin * medecin</div><div class="ttdef"><b>Definition</b> <a href="patient_8h_source.html#l00103">patient.h:103</a></div></div>
+<div class="ttc" id="aclassPatient_html_a105267e5af392dc0301293e3072da2a4"><div class="ttname"><a href="classPatient.html#a105267e5af392dc0301293e3072da2a4">Patient::clinique</a></div><div class="ttdeci">Clinique * clinique</div><div class="ttdef"><b>Definition</b> <a href="patient_8h_source.html#l00104">patient.h:104</a></div></div>
+<div class="ttc" id="aclassPatient_html_a1275038bd9734ec61a01d79786701b59"><div class="ttname"><a href="classPatient.html#a1275038bd9734ec61a01d79786701b59">Patient::toString</a></div><div class="ttdeci">QString toString() const</div><div class="ttdoc">Génère une représentation textuelle du patient.</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00063">patient.cpp:63</a></div></div>
+<div class="ttc" id="aclassPatient_html_a1622ba4e8256c8e0d63271d16213ac51"><div class="ttname"><a href="classPatient.html#a1622ba4e8256c8e0d63271d16213ac51">Patient::getMedecin</a></div><div class="ttdeci">Medecin * getMedecin() const</div><div class="ttdoc">Récupère le médecin traitant du patient.</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00041">patient.cpp:41</a></div></div>
+<div class="ttc" id="aclassPatient_html_a357991d8b72aab419f866018bb99941d"><div class="ttname"><a href="classPatient.html#a357991d8b72aab419f866018bb99941d">Patient::estHospitalise</a></div><div class="ttdeci">bool estHospitalise() const</div><div class="ttdoc">Vérifie si le patient est actuellement hospitalisé</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00059">patient.cpp:59</a></div></div>
+<div class="ttc" id="aclassPatient_html_a65a9a9f6c34140e5ef82e63d78a4d0a8"><div class="ttname"><a href="classPatient.html#a65a9a9f6c34140e5ef82e63d78a4d0a8">Patient::retirerAllergie</a></div><div class="ttdeci">void retirerAllergie(const Allergie &amp;allergie)</div><div class="ttdoc">Retire une allergie de la fiche du patient.</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00018">patient.cpp:18</a></div></div>
+<div class="ttc" id="aclassPatient_html_a7199fe1860ab23c9677e03a1b29620f7"><div class="ttname"><a href="classPatient.html#a7199fe1860ab23c9677e03a1b29620f7">Patient::clearAllergies</a></div><div class="ttdeci">void clearAllergies()</div><div class="ttdoc">Efface toutes les allergies du patient.</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00027">patient.cpp:27</a></div></div>
+<div class="ttc" id="aclassPatient_html_a8036a1dc62342d7e1915d4e7a659e1a9"><div class="ttname"><a href="classPatient.html#a8036a1dc62342d7e1915d4e7a659e1a9">Patient::getAllergies</a></div><div class="ttdeci">QList&lt; Allergie &gt; getAllergies() const</div><div class="ttdoc">Récupère la liste des allergies du patient.</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00031">patient.cpp:31</a></div></div>
+<div class="ttc" id="aclassPatient_html_aa6881bf8aa7702bb0db8b00e4f8f1bcc"><div class="ttname"><a href="classPatient.html#aa6881bf8aa7702bb0db8b00e4f8f1bcc">Patient::setHospitalisation</a></div><div class="ttdeci">void setHospitalisation(Clinique *clinique)</div><div class="ttdoc">Hospitalise le patient dans une clinique.</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00047">patient.cpp:47</a></div></div>
+<div class="ttc" id="aclassPatient_html_acaea67239dd2d14abed7ae8f0dc7ba19"><div class="ttname"><a href="classPatient.html#acaea67239dd2d14abed7ae8f0dc7ba19">Patient::setMedecin</a></div><div class="ttdeci">void setMedecin(Medecin *medecin)</div><div class="ttdoc">Définit le médecin traitant du patient.</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00037">patient.cpp:37</a></div></div>
+<div class="ttc" id="aclassPatient_html_adcd99aa0bcf81fbd3e43600654aef4cb"><div class="ttname"><a href="classPatient.html#adcd99aa0bcf81fbd3e43600654aef4cb">Patient::ajouterAllergie</a></div><div class="ttdeci">void ajouterAllergie(const Allergie &amp;allergie)</div><div class="ttdoc">Ajoute une allergie à la fiche du patient.</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00014">patient.cpp:14</a></div></div>
+<div class="ttc" id="aclassPatient_html_adf785fae1e2f09327992d9c43fa1cfa7"><div class="ttname"><a href="classPatient.html#adf785fae1e2f09327992d9c43fa1cfa7">Patient::allergies</a></div><div class="ttdeci">QList&lt; Allergie &gt; allergies</div><div class="ttdef"><b>Definition</b> <a href="patient_8h_source.html#l00102">patient.h:102</a></div></div>
+<div class="ttc" id="aclassPatient_html_ae88910a13050556b336c255f1abdf041"><div class="ttname"><a href="classPatient.html#ae88910a13050556b336c255f1abdf041">Patient::retirerHospitalisation</a></div><div class="ttdeci">void retirerHospitalisation()</div><div class="ttdoc">Termine l'hospitalisation du patient.</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00051">patient.cpp:51</a></div></div>
+<div class="ttc" id="aclassPatient_html_aea1b4dd456b9922595dc002c365ad15d"><div class="ttname"><a href="classPatient.html#aea1b4dd456b9922595dc002c365ad15d">Patient::getClinique</a></div><div class="ttdeci">Clinique * getClinique() const</div><div class="ttdoc">Récupère la clinique où le patient est hospitalisé</div><div class="ttdef"><b>Definition</b> <a href="patient_8cpp_source.html#l00055">patient.cpp:55</a></div></div>
+<div class="ttc" id="aclassPersonne_html"><div class="ttname"><a href="classPersonne.html">Personne</a></div><div class="ttdoc">Classe de base représentant une personne Les attributs id, nom, prenom et date_naissance sont constan...</div><div class="ttdef"><b>Definition</b> <a href="personne_8h_source.html#l00012">personne.h:12</a></div></div>
+<div class="ttc" id="aclassPersonne_html_a27e0f28bb9ae0e4255f33dbae7a753ee"><div class="ttname"><a href="classPersonne.html#a27e0f28bb9ae0e4255f33dbae7a753ee">Personne::sexe</a></div><div class="ttdeci">QString sexe</div><div class="ttdef"><b>Definition</b> <a href="personne_8h_source.html#l00038">personne.h:38</a></div></div>
+<div class="ttc" id="aclassPersonne_html_a6c6619b4d31ca5262f9cc50dd1c79b7b"><div class="ttname"><a href="classPersonne.html#a6c6619b4d31ca5262f9cc50dd1c79b7b">Personne::adresse</a></div><div class="ttdeci">QString adresse</div><div class="ttdef"><b>Definition</b> <a href="personne_8h_source.html#l00037">personne.h:37</a></div></div>
+<div class="ttc" id="aclassPersonne_html_a71b1f9f7045b6cab7735a101476c7fe3"><div class="ttname"><a href="classPersonne.html#a71b1f9f7045b6cab7735a101476c7fe3">Personne::telephone</a></div><div class="ttdeci">QString telephone</div><div class="ttdef"><b>Definition</b> <a href="personne_8h_source.html#l00040">personne.h:40</a></div></div>
+<div class="ttc" id="aclassPersonne_html_ab148f8573c301109de51e58a66604978"><div class="ttname"><a href="classPersonne.html#ab148f8573c301109de51e58a66604978">Personne::email</a></div><div class="ttdeci">QString email</div><div class="ttdef"><b>Definition</b> <a href="personne_8h_source.html#l00039">personne.h:39</a></div></div>
+<div class="ttc" id="aclassPersonne_html_ad55da93969d0a7794966e5d69d3ea46f"><div class="ttname"><a href="classPersonne.html#ad55da93969d0a7794966e5d69d3ea46f">Personne::prenom</a></div><div class="ttdeci">const QString prenom</div><div class="ttdef"><b>Definition</b> <a href="personne_8h_source.html#l00035">personne.h:35</a></div></div>
+<div class="ttc" id="aclassPersonne_html_adde12f0ca1c308caa666beade83b8bcf"><div class="ttname"><a href="classPersonne.html#adde12f0ca1c308caa666beade83b8bcf">Personne::nom</a></div><div class="ttdeci">const QString nom</div><div class="ttdef"><b>Definition</b> <a href="personne_8h_source.html#l00034">personne.h:34</a></div></div>
+<div class="ttc" id="aclassPersonne_html_ae206f6e7d447473f9af67c6e4383353e"><div class="ttname"><a href="classPersonne.html#ae206f6e7d447473f9af67c6e4383353e">Personne::date_naissance</a></div><div class="ttdeci">const QDate date_naissance</div><div class="ttdef"><b>Definition</b> <a href="personne_8h_source.html#l00036">personne.h:36</a></div></div>
+<div class="ttc" id="apersonne_8h_html"><div class="ttname"><a href="personne_8h.html">personne.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1ec98ce50fa6ec55b40b8ffb1df38c3c.html">header</a></li><li class="navelem"><a class="el" href="patient_8h.html">patient.h</a></li>
+    <li class="footer">Généré le Dimanche 21 Décembre 2025 21:47:53 pour SGM - Système de Gestion Médicale par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

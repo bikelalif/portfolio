@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/healthfile.png</file>
+    </qresource>
+</RCC>

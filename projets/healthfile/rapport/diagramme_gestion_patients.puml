@@ -1,0 +1,301 @@
+@startuml GestionFichesPatients
+
+title Diagramme de Classes - Système de Gestion de Fiches Patients
+
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+' ========== CLASSE MAINWINDOW (CONTROLEUR UI) ==========
+
+class MainWindow <<QMainWindow>> {
+  - ui : Ui::MainWindow*
+  - patients : QList<Patient*>
+  - medecins : QList<Medecin*>
+  - cliniques : QList<Clinique*>
+  - allergies : QList<Allergie>
+  --
+  + MainWindow(parent:QWidget*)
+  + ~MainWindow()
+  
+  <b>== SLOTS PATIENT ==</b>
+  - formulaireAjoutPatient() : void
+  - onPatientClicked(item:QListWidgetItem*) : void
+  - ModifierPatient(p:Patient*) : void
+  - SupprimerPatient(p:Patient*, index:int) : void
+  - rechercherPatient(texte:QString) : void
+  
+  <b>== SLOTS MEDECIN ==</b>
+  - formulaireAjoutMedecin() : void
+  - onMedecinClicked(item:QListWidgetItem*) : void
+  - ModifierMedecin(m:Medecin*) : void
+  - SupprimerMedecin(m:Medecin*, index:int) : void
+  - rechercherMedecin(texte:QString) : void
+  
+  <b>== SLOTS CLINIQUE ==</b>
+  - formulaireAjoutClinique() : void
+  - onCliniqueClicked(item:QListWidgetItem*) : void
+  - ModifierClinique(c:Clinique*) : void
+  - SupprimerClinique(c:Clinique*, index:int) : void
+  - rechercherClinique(texte:QString) : void
+  
+  <b>== SLOTS ALLERGIE ==</b>
+  - formulaireAjoutAllergie() : void
+  - onAllergieClicked(item:QListWidgetItem*) : void
+  - ModifierAllergie(index:int) : void
+  - SupprimerAllergie(index:int) : void
+  - rechercherAllergie(texte:QString) : void
+  
+  <b>== IMPORT/EXPORT ==</b>
+  - exporterDonnees() : void
+  - importerDonnees() : void
+  
+  <b>== À PROPOS ==</b>
+  - afficherAPropos() : void
+  
+  <b>== AFFICHAGE ==</b>
+  - afficherPatients() : void
+  - creerBullePatient(p:Patient*) : QWidget*
+  - ajouterPatient(p:Patient*) : void
+  - afficherMedecins() : void
+  - creerBulleMedecin(m:Medecin*) : QWidget*
+  - ajouterMedecin(m:Medecin*) : void
+  - afficherCliniques() : void
+  - creerBulleClinique(c:Clinique*) : QWidget*
+  - ajouterClinique(c:Clinique*) : void
+  - afficherAllergies() : void
+  - creerBulleAllergie(a:Allergie*) : QWidget*
+  - ajouterAllergie(a:Allergie) : void
+  
+  <b>== FILTRAGE ==</b>
+  - filtrerListeMedecins(liste:QListWidget*, texte:QString) : void
+  - filtrerListeCliniques(liste:QListWidget*, texte:QString) : void
+  - filtrerListeAllergies(liste:QListWidget*, texte:QString) : void
+}
+
+' ========== ENTITES METIER ==========
+
+abstract class Personne {
+  # id : const QString
+  # nom : const QString
+  # prenom : const QString
+  # date_naissance : const QDate
+  # adresse : QString
+  # sexe : QString
+  # email : QString
+  # telephone : QString
+  --
+  + Personne(id:QString, nom:QString, prenom:QString, date_naissance:QDate, adresse:QString, sexe:QString, email:QString, telephone:QString)
+  + getId() : QString
+  + getNom() : QString
+  + getPrenom() : QString
+  + getDate_naissance() : QDate
+  + getAdresse() : QString
+  + getSexe() : QString
+  + getEmail() : QString
+  + getTelephone() : QString
+  + setTelephone(telephone:QString) : void
+  + setAdresse(adresse:QString) : void
+  + setSexe(sexe:QString) : void
+  + setEmail(email:QString) : void
+}
+
+class Patient {
+  # allergies : QList<Allergie>
+  # medecin : Medecin* = nullptr
+  # clinique : Clinique* = nullptr
+  --
+  + Patient(id:QString, nom:QString, prenom:QString, date_naissance:QDate, adresse:QString, sexe:QString, email:QString, telephone:QString)
+  
+  <b>== GESTION ALLERGIES ==</b>
+  + ajouterAllergie(allergie:Allergie) : void
+  + retirerAllergie(allergie:Allergie) : void
+  + clearAllergies() : void
+  + getAllergies() : QList<Allergie>
+  
+  <b>== GESTION MEDECIN ==</b>
+  + setMedecin(medecin:Medecin*) : void
+  + getMedecin() : Medecin*
+  
+  <b>== GESTION HOSPITALISATION ==</b>
+  + setHospitalisation(clinique:Clinique*) : void
+  + retirerHospitalisation() : void
+  + getClinique() : Clinique*
+  + estHospitalise() : bool
+  
+  + toString() : QString
+}
+
+class Medecin {
+  # specialisation : QString
+  # patients : QList<Patient*>
+  # cliniques : QList<Clinique*>
+  --
+  + Medecin(id:QString, nom:QString, prenom:QString, date_naissance:QDate, adresse:QString, sexe:QString, email:QString, telephone:QString)
+  + Medecin(id:QString, nom:QString, prenom:QString, date_naissance:QDate, adresse:QString, sexe:QString, email:QString, telephone:QString, specialisation:QString)
+  + getSpecialisation() : QString
+  + setSpecialisation(specialisation:QString) : void
+  + getPatients() : QList<Patient*>
+  + getCliniques() : QList<Clinique*>
+  + getNombrePatients() : int
+  
+  <b>== GESTION PATIENTS ==</b>
+  + ajouterPatient(patient:Patient*) : void
+  + retirerPatient(patient:Patient*) : void
+  + suivrePatient(patient:Patient*) : void
+  
+  <b>== GESTION CLINIQUES ==</b>
+  + ajouterClinique(clinique:Clinique*) : void
+  + retirerClinique(clinique:Clinique*) : void
+  + travailleDans(clinique:Clinique*) : bool
+  
+  + toString() : QString
+}
+
+class Clinique {
+  # id : QString
+  # nom : QString
+  # adresse : QString
+  # telephone : QString
+  # medecins : QList<Medecin*>
+  # patients : QList<Patient*>
+  --
+  + Clinique(id:QString, nom:QString, adresse:QString, telephone:QString)
+  + getId() : QString
+  + getNom() : QString
+  + setNom(nom:QString) : void
+  + getAdresse() : QString
+  + setAdresse(adresse:QString) : void
+  + getTelephone() : QString
+  + setTelephone(telephone:QString) : void
+  + getPatients() : QList<Patient*>
+  + getMedecins() : QList<Medecin*>
+  + getNombreMedecins() : int
+  + getNombrePatientsHospitalises() : int
+  
+  <b>== GESTION PATIENTS ==</b>
+  + hospitaliserPatient(patient:Patient*) : void
+  + sortirPatient(patient:Patient*) : void
+  + patientEstHospitalise(patient:Patient*) : bool
+  
+  <b>== GESTION MEDECINS ==</b>
+  + ajouterMedecin(medecin:Medecin*) : void
+  + retirerMedecin(medecin:Medecin*) : void
+  + medecinTravailleIci(medecin:Medecin*) : bool
+  
+  + toString() : QString
+}
+
+class Allergie {
+  # nom : QString
+  # description : QString
+  --
+  + Allergie(nom:QString, description:QString)
+  + getNom() : QString
+  + setNom(nom:QString) : void
+  + getDescription() : QString
+  + setDescription(description:QString) : void
+  + to_String() : QString
+}
+
+' ========== RELATIONS ==========
+
+' Héritage
+Personne <|-- Patient
+Personne <|-- Medecin
+
+' MainWindow gère les collections
+MainWindow o-- "0..*" Patient : gère ▶
+MainWindow o-- "0..*" Medecin : gère ▶
+MainWindow o-- "0..*" Clinique : gère ▶
+MainWindow o-- "0..*" Allergie : gère ▶
+
+' Relations Patient
+Patient "0..*" o-- "0..*" Allergie : possède ▶
+Patient "0..*" --> "0..1" Medecin : suivi par ▶
+Patient "0..*" --> "0..1" Clinique : hospitalisé à ▶
+
+' Relations bidirectionnelles
+Medecin "0..*" <--> "0..*" Clinique : travaille dans ▶
+Medecin "1" o-- "0..*" Patient : suit ▶
+Clinique "1" o-- "0..*" Patient : hospitalise ▶
+
+' ========== NOTES ==========
+
+note top of MainWindow
+  <b>Interface Principale Qt (QObject)</b>
+  
+  <b>Responsabilités:</b>
+  • Gestion de l'interface utilisateur avec slots
+  • Formulaires CRUD (Create, Read, Update, Delete)
+  • Recherche et filtrage en temps réel
+  • Import/Export JSON complet
+  • Boîte de dialogue "À propos"
+  • Coordination des relations entre entités
+  
+  <b>Fonctionnalités implémentées:</b>
+  ✓ Documentation Doxygen complète
+  ✓ Icône d'application (healthfile.png)
+  ✓ Support traductions (sgm_en.ts)
+  ✓ Métadonnées app (QSettings ready)
+end note
+
+note top of Personne
+  <b>Classe abstraite de base</b>
+  
+  <b>Attributs constants:</b>
+  • id, nom, prenom, date_naissance
+  
+  <b>Attributs modifiables:</b>
+  • adresse, sexe, email, telephone
+  
+  <b>Documentation:</b>
+  ✓ Commentaires Doxygen complets
+end note
+
+note right of Patient
+  <b>Patient - Entité Centrale</b>
+  
+  <b>Relations:</b>
+  • 0 ou 1 médecin traitant
+  • 0 ou 1 clinique d'hospitalisation
+  • Plusieurs allergies possibles
+  
+  <b>Documentation:</b>
+  ✓ @class, @brief, @details, @param
+end note
+
+note right of Medecin
+  <b>Médecin</b>
+  
+  <b>Capacités:</b>
+  • Suit plusieurs patients
+  • Travaille dans plusieurs cliniques
+  • Relations bidirectionnelles
+  
+  <b>Documentation:</b>
+  ✓ Deux constructeurs documentés
+  ✓ Toutes méthodes documentées
+end note
+
+note bottom of Clinique
+  <b>Clinique</b>
+  
+  Gère les médecins et les
+  patients hospitalisés avec
+  relations bidirectionnelles.
+  
+  <b>Documentation:</b>
+  ✓ Doxygen complet
+end note
+
+note right of Allergie
+  <b>Allergie</b>
+  
+  Objet valeur stocké directement
+  dans QList<Allergie> (pas de pointeur).
+  
+  Classe simple et légère.
+end note
+
+@enduml

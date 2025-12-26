@@ -1,0 +1,5 @@
+<map id="Allergie" name="Allergie">
+<area shape="rect" id="Node000001" title="Classe représentant une allergie avec son nom et sa description." alt="" coords="5,148,139,313"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="41,5,103,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,71,75,132,69,132,69,71"/>
+</map>

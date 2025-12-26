@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SGM - Système de Gestion Médicale:  Fichier source de src/clinique.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="healthfile.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">SGM - Système de Gestion Médicale<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Application de gestion de fiches patients, médecins et cliniques</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('clinique_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">clinique.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="clinique_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="clinique_8h.html">clinique.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="patient_8h.html">patient.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="medecin_8h.html">medecin.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="}">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classClinique.html#a9efe33886da477da0765390ed512d086">    5</a></span><a class="code hl_function" href="classClinique.html#a9efe33886da477da0765390ed512d086">Clinique::Clinique</a>(<span class="keyword">const</span> QString&amp; <span class="keywordtype">id</span>, <span class="keyword">const</span> QString&amp; nom, <span class="keyword">const</span> QString&amp; adresse, <span class="keyword">const</span> QString&amp; telephone)</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    : id(id), nom(nom), adresse(adresse), telephone(telephone) {</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
+</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classClinique.html#a3edf7fb8f970222ff7f42f77217786aa">    9</a></span>QString <a class="code hl_function" href="classClinique.html#a3edf7fb8f970222ff7f42f77217786aa">Clinique::getId</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#a98ba66790c08470981f0c556fafc11f0">id</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
+</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classClinique.html#a052b63badbc9a236319791968ef89fbc">   13</a></span>QString <a class="code hl_function" href="classClinique.html#a052b63badbc9a236319791968ef89fbc">Clinique::getNom</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#abb7ed03fa0df2c93da74c4e8ced593d9">nom</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classClinique.html#a4af45a5c035bc4a846575c3b2fc13fa7">   17</a></span>QString <a class="code hl_function" href="classClinique.html#a4af45a5c035bc4a846575c3b2fc13fa7">Clinique::getAdresse</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#adba078ac1f6723d3a73335a0cf8847ad">adresse</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classClinique.html#ac67e829d1a7682ef7ae48ce205d9fbd3">   21</a></span>QString <a class="code hl_function" href="classClinique.html#ac67e829d1a7682ef7ae48ce205d9fbd3">Clinique::getTelephone</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#aece42f4533cb2d33998d3b3f42a3f5f2">telephone</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classClinique.html#ab5f84846b240d9343aad964e5c90fc9e">   25</a></span>QList&lt;Patient*&gt; <a class="code hl_function" href="classClinique.html#ab5f84846b240d9343aad964e5c90fc9e">Clinique::getPatients</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#aa92a79f2387affbf00e80aa4706b6c4a">patients</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classClinique.html#a937fab2149982f553e5b6be0f126cdb3">   29</a></span>QList&lt;Medecin*&gt; <a class="code hl_function" href="classClinique.html#a937fab2149982f553e5b6be0f126cdb3">Clinique::getMedecins</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#ac3281d32484b269696bcc827c1787176">medecins</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classClinique.html#a8932cf6d41320cde7498ebd1ba54628c">   33</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classClinique.html#a8932cf6d41320cde7498ebd1ba54628c">Clinique::getNombreMedecins</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#ac3281d32484b269696bcc827c1787176">medecins</a>.size();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classClinique.html#ad52eb8da839778a3abd3dfbe148cbab5">   37</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="classClinique.html#ad52eb8da839778a3abd3dfbe148cbab5">Clinique::getNombrePatientsHospitalises</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#aa92a79f2387affbf00e80aa4706b6c4a">patients</a>.size();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classClinique.html#ab06a98cbd62ccf44e2b9dc68f9821772">   41</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClinique.html#ab06a98cbd62ccf44e2b9dc68f9821772">Clinique::setNom</a>(<span class="keyword">const</span> QString&amp; t_nom) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_variable" href="classClinique.html#abb7ed03fa0df2c93da74c4e8ced593d9">nom</a> = t_nom;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classClinique.html#a34c391283b0f0b485b9b4e76c29e9c14">   45</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClinique.html#a34c391283b0f0b485b9b4e76c29e9c14">Clinique::setAdresse</a>(<span class="keyword">const</span> QString&amp; t_adresse) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_variable" href="classClinique.html#adba078ac1f6723d3a73335a0cf8847ad">adresse</a> = t_adresse;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classClinique.html#accf136c81472283789ba908e49a7159b">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClinique.html#accf136c81472283789ba908e49a7159b">Clinique::setTelephone</a>(<span class="keyword">const</span> QString&amp; t_telephone) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_variable" href="classClinique.html#aece42f4533cb2d33998d3b3f42a3f5f2">telephone</a> = t_telephone;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// Gestion patients</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classClinique.html#a6833c7083673f803ee7b076fb6ea9736">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClinique.html#a6833c7083673f803ee7b076fb6ea9736">Clinique::hospitaliserPatient</a>(<a class="code hl_class" href="classPatient.html">Patient</a>* patient) {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span> (patient &amp;&amp; !<a class="code hl_variable" href="classClinique.html#aa92a79f2387affbf00e80aa4706b6c4a">patients</a>.contains(patient)) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_variable" href="classClinique.html#aa92a79f2387affbf00e80aa4706b6c4a">patients</a>.append(patient);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classClinique.html#a964025e972412ec7c278a6a082cf4704">   61</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClinique.html#a964025e972412ec7c278a6a082cf4704">Clinique::sortirPatient</a>(<a class="code hl_class" href="classPatient.html">Patient</a>* patient) {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_variable" href="classClinique.html#aa92a79f2387affbf00e80aa4706b6c4a">patients</a>.removeAll(patient);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classClinique.html#a1328b9a2d529deb4142177be1f788f3f">   65</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classClinique.html#a1328b9a2d529deb4142177be1f788f3f">Clinique::patientEstHospitalise</a>(<a class="code hl_class" href="classPatient.html">Patient</a>* patient)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#aa92a79f2387affbf00e80aa4706b6c4a">patients</a>.contains(patient);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">// Gestion médecins</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classClinique.html#ad8279cd75dc05944343029ae74635b77">   71</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClinique.html#ad8279cd75dc05944343029ae74635b77">Clinique::ajouterMedecin</a>(<a class="code hl_class" href="classMedecin.html">Medecin</a>* medecin) {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">if</span> (medecin &amp;&amp; !<a class="code hl_variable" href="classClinique.html#ac3281d32484b269696bcc827c1787176">medecins</a>.contains(medecin)) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_variable" href="classClinique.html#ac3281d32484b269696bcc827c1787176">medecins</a>.append(medecin);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classClinique.html#a4e2a5d3f3277caedaec4c71cd80bea0d">   77</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClinique.html#a4e2a5d3f3277caedaec4c71cd80bea0d">Clinique::retirerMedecin</a>(<a class="code hl_class" href="classMedecin.html">Medecin</a>* medecin) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_variable" href="classClinique.html#ac3281d32484b269696bcc827c1787176">medecins</a>.removeAll(medecin);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classClinique.html#ad702d3d218fc80b334e5d8599f47c046">   81</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classClinique.html#ad702d3d218fc80b334e5d8599f47c046">Clinique::medecinTravailleIci</a>(<a class="code hl_class" href="classMedecin.html">Medecin</a>* medecin)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classClinique.html#ac3281d32484b269696bcc827c1787176">medecins</a>.contains(medecin);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classClinique.html#a8777eea7beb5a13e4d9cf14d55a502e8">   85</a></span>QString <a class="code hl_function" href="classClinique.html#a8777eea7beb5a13e4d9cf14d55a502e8">Clinique::toString</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">return</span> QString(<span class="stringliteral">&quot;Clinique: %1 - %2 (ID: %3)&quot;</span>).arg(<a class="code hl_variable" href="classClinique.html#abb7ed03fa0df2c93da74c4e8ced593d9">nom</a>).arg(<a class="code hl_variable" href="classClinique.html#adba078ac1f6723d3a73335a0cf8847ad">adresse</a>).arg(<span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+</div>
+<div class="ttc" id="aclassClinique_html_a052b63badbc9a236319791968ef89fbc"><div class="ttname"><a href="classClinique.html#a052b63badbc9a236319791968ef89fbc">Clinique::getNom</a></div><div class="ttdeci">QString getNom() const</div><div class="ttdoc">Récupère le nom de la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00013">clinique.cpp:13</a></div></div>
+<div class="ttc" id="aclassClinique_html_a1328b9a2d529deb4142177be1f788f3f"><div class="ttname"><a href="classClinique.html#a1328b9a2d529deb4142177be1f788f3f">Clinique::patientEstHospitalise</a></div><div class="ttdeci">bool patientEstHospitalise(Patient *patient) const</div><div class="ttdoc">Vérifie si un patient est hospitalisé</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00065">clinique.cpp:65</a></div></div>
+<div class="ttc" id="aclassClinique_html_a34c391283b0f0b485b9b4e76c29e9c14"><div class="ttname"><a href="classClinique.html#a34c391283b0f0b485b9b4e76c29e9c14">Clinique::setAdresse</a></div><div class="ttdeci">void setAdresse(const QString &amp;adresse)</div><div class="ttdoc">Modifie l'adresse de la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00045">clinique.cpp:45</a></div></div>
+<div class="ttc" id="aclassClinique_html_a3edf7fb8f970222ff7f42f77217786aa"><div class="ttname"><a href="classClinique.html#a3edf7fb8f970222ff7f42f77217786aa">Clinique::getId</a></div><div class="ttdeci">QString getId() const</div><div class="ttdoc">Récupère l'identifiant de la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00009">clinique.cpp:9</a></div></div>
+<div class="ttc" id="aclassClinique_html_a4af45a5c035bc4a846575c3b2fc13fa7"><div class="ttname"><a href="classClinique.html#a4af45a5c035bc4a846575c3b2fc13fa7">Clinique::getAdresse</a></div><div class="ttdeci">QString getAdresse() const</div><div class="ttdoc">Récupère l'adresse de la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00017">clinique.cpp:17</a></div></div>
+<div class="ttc" id="aclassClinique_html_a4e2a5d3f3277caedaec4c71cd80bea0d"><div class="ttname"><a href="classClinique.html#a4e2a5d3f3277caedaec4c71cd80bea0d">Clinique::retirerMedecin</a></div><div class="ttdeci">void retirerMedecin(Medecin *medecin)</div><div class="ttdoc">Retire un médecin de la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00077">clinique.cpp:77</a></div></div>
+<div class="ttc" id="aclassClinique_html_a6833c7083673f803ee7b076fb6ea9736"><div class="ttname"><a href="classClinique.html#a6833c7083673f803ee7b076fb6ea9736">Clinique::hospitaliserPatient</a></div><div class="ttdeci">void hospitaliserPatient(Patient *patient)</div><div class="ttdoc">Hospitalise un patient dans la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00055">clinique.cpp:55</a></div></div>
+<div class="ttc" id="aclassClinique_html_a8777eea7beb5a13e4d9cf14d55a502e8"><div class="ttname"><a href="classClinique.html#a8777eea7beb5a13e4d9cf14d55a502e8">Clinique::toString</a></div><div class="ttdeci">QString toString() const</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00085">clinique.cpp:85</a></div></div>
+<div class="ttc" id="aclassClinique_html_a8932cf6d41320cde7498ebd1ba54628c"><div class="ttname"><a href="classClinique.html#a8932cf6d41320cde7498ebd1ba54628c">Clinique::getNombreMedecins</a></div><div class="ttdeci">int getNombreMedecins() const</div><div class="ttdoc">Compte le nombre de médecins.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00033">clinique.cpp:33</a></div></div>
+<div class="ttc" id="aclassClinique_html_a937fab2149982f553e5b6be0f126cdb3"><div class="ttname"><a href="classClinique.html#a937fab2149982f553e5b6be0f126cdb3">Clinique::getMedecins</a></div><div class="ttdeci">QList&lt; Medecin * &gt; getMedecins() const</div><div class="ttdoc">Récupère la liste des médecins travaillant dans la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00029">clinique.cpp:29</a></div></div>
+<div class="ttc" id="aclassClinique_html_a964025e972412ec7c278a6a082cf4704"><div class="ttname"><a href="classClinique.html#a964025e972412ec7c278a6a082cf4704">Clinique::sortirPatient</a></div><div class="ttdeci">void sortirPatient(Patient *patient)</div><div class="ttdoc">Fait sortir un patient de la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00061">clinique.cpp:61</a></div></div>
+<div class="ttc" id="aclassClinique_html_a98ba66790c08470981f0c556fafc11f0"><div class="ttname"><a href="classClinique.html#a98ba66790c08470981f0c556fafc11f0">Clinique::id</a></div><div class="ttdeci">QString id</div><div class="ttdef"><b>Definition</b> <a href="clinique_8h_source.html#l00134">clinique.h:134</a></div></div>
+<div class="ttc" id="aclassClinique_html_a9efe33886da477da0765390ed512d086"><div class="ttname"><a href="classClinique.html#a9efe33886da477da0765390ed512d086">Clinique::Clinique</a></div><div class="ttdeci">Clinique(const QString &amp;id, const QString &amp;nom, const QString &amp;adresse, const QString &amp;telephone)</div><div class="ttdoc">Constructeur de Clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00005">clinique.cpp:5</a></div></div>
+<div class="ttc" id="aclassClinique_html_aa92a79f2387affbf00e80aa4706b6c4a"><div class="ttname"><a href="classClinique.html#aa92a79f2387affbf00e80aa4706b6c4a">Clinique::patients</a></div><div class="ttdeci">QList&lt; Patient * &gt; patients</div><div class="ttdef"><b>Definition</b> <a href="clinique_8h_source.html#l00139">clinique.h:139</a></div></div>
+<div class="ttc" id="aclassClinique_html_ab06a98cbd62ccf44e2b9dc68f9821772"><div class="ttname"><a href="classClinique.html#ab06a98cbd62ccf44e2b9dc68f9821772">Clinique::setNom</a></div><div class="ttdeci">void setNom(const QString &amp;nom)</div><div class="ttdoc">Modifie le nom de la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00041">clinique.cpp:41</a></div></div>
+<div class="ttc" id="aclassClinique_html_ab5f84846b240d9343aad964e5c90fc9e"><div class="ttname"><a href="classClinique.html#ab5f84846b240d9343aad964e5c90fc9e">Clinique::getPatients</a></div><div class="ttdeci">QList&lt; Patient * &gt; getPatients() const</div><div class="ttdoc">Récupère la liste des patients hospitalisés.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00025">clinique.cpp:25</a></div></div>
+<div class="ttc" id="aclassClinique_html_abb7ed03fa0df2c93da74c4e8ced593d9"><div class="ttname"><a href="classClinique.html#abb7ed03fa0df2c93da74c4e8ced593d9">Clinique::nom</a></div><div class="ttdeci">QString nom</div><div class="ttdef"><b>Definition</b> <a href="clinique_8h_source.html#l00135">clinique.h:135</a></div></div>
+<div class="ttc" id="aclassClinique_html_ac3281d32484b269696bcc827c1787176"><div class="ttname"><a href="classClinique.html#ac3281d32484b269696bcc827c1787176">Clinique::medecins</a></div><div class="ttdeci">QList&lt; Medecin * &gt; medecins</div><div class="ttdef"><b>Definition</b> <a href="clinique_8h_source.html#l00138">clinique.h:138</a></div></div>
+<div class="ttc" id="aclassClinique_html_ac67e829d1a7682ef7ae48ce205d9fbd3"><div class="ttname"><a href="classClinique.html#ac67e829d1a7682ef7ae48ce205d9fbd3">Clinique::getTelephone</a></div><div class="ttdeci">QString getTelephone() const</div><div class="ttdoc">Récupère le numéro de téléphone.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00021">clinique.cpp:21</a></div></div>
+<div class="ttc" id="aclassClinique_html_accf136c81472283789ba908e49a7159b"><div class="ttname"><a href="classClinique.html#accf136c81472283789ba908e49a7159b">Clinique::setTelephone</a></div><div class="ttdeci">void setTelephone(const QString &amp;telephone)</div><div class="ttdoc">Modifie le numéro de téléphone.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00049">clinique.cpp:49</a></div></div>
+<div class="ttc" id="aclassClinique_html_ad52eb8da839778a3abd3dfbe148cbab5"><div class="ttname"><a href="classClinique.html#ad52eb8da839778a3abd3dfbe148cbab5">Clinique::getNombrePatientsHospitalises</a></div><div class="ttdeci">int getNombrePatientsHospitalises() const</div><div class="ttdoc">Compte le nombre de patients hospitalisés.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00037">clinique.cpp:37</a></div></div>
+<div class="ttc" id="aclassClinique_html_ad702d3d218fc80b334e5d8599f47c046"><div class="ttname"><a href="classClinique.html#ad702d3d218fc80b334e5d8599f47c046">Clinique::medecinTravailleIci</a></div><div class="ttdeci">bool medecinTravailleIci(Medecin *medecin) const</div><div class="ttdoc">Vérifie si un médecin travaille dans la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00081">clinique.cpp:81</a></div></div>
+<div class="ttc" id="aclassClinique_html_ad8279cd75dc05944343029ae74635b77"><div class="ttname"><a href="classClinique.html#ad8279cd75dc05944343029ae74635b77">Clinique::ajouterMedecin</a></div><div class="ttdeci">void ajouterMedecin(Medecin *medecin)</div><div class="ttdoc">Ajoute un médecin à la clinique.</div><div class="ttdef"><b>Definition</b> <a href="clinique_8cpp_source.html#l00071">clinique.cpp:71</a></div></div>
+<div class="ttc" id="aclassClinique_html_adba078ac1f6723d3a73335a0cf8847ad"><div class="ttname"><a href="classClinique.html#adba078ac1f6723d3a73335a0cf8847ad">Clinique::adresse</a></div><div class="ttdeci">QString adresse</div><div class="ttdef"><b>Definition</b> <a href="clinique_8h_source.html#l00136">clinique.h:136</a></div></div>
+<div class="ttc" id="aclassClinique_html_aece42f4533cb2d33998d3b3f42a3f5f2"><div class="ttname"><a href="classClinique.html#aece42f4533cb2d33998d3b3f42a3f5f2">Clinique::telephone</a></div><div class="ttdeci">QString telephone</div><div class="ttdef"><b>Definition</b> <a href="clinique_8h_source.html#l00137">clinique.h:137</a></div></div>
+<div class="ttc" id="aclassMedecin_html"><div class="ttname"><a href="classMedecin.html">Medecin</a></div><div class="ttdoc">Classe représentant un médecin du système de gestion médical.</div><div class="ttdef"><b>Definition</b> <a href="medecin_8h_source.html#l00019">medecin.h:19</a></div></div>
+<div class="ttc" id="aclassPatient_html"><div class="ttname"><a href="classPatient.html">Patient</a></div><div class="ttdoc">Classe représentant un patient du système de gestion médical.</div><div class="ttdef"><b>Definition</b> <a href="patient_8h_source.html#l00020">patient.h:20</a></div></div>
+<div class="ttc" id="aclinique_8h_html"><div class="ttname"><a href="clinique_8h.html">clinique.h</a></div></div>
+<div class="ttc" id="amedecin_8h_html"><div class="ttname"><a href="medecin_8h.html">medecin.h</a></div></div>
+<div class="ttc" id="apatient_8h_html"><div class="ttname"><a href="patient_8h.html">patient.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="clinique_8cpp.html">clinique.cpp</a></li>
+    <li class="footer">Généré le Dimanche 21 Décembre 2025 21:47:53 pour SGM - Système de Gestion Médicale par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

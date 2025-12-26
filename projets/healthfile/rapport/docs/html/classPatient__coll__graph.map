@@ -1,0 +1,25 @@
+<map id="Patient" name="Patient">
+<area shape="rect" id="Node000001" title="Classe représentant un patient du système de gestion médical." alt="" coords="517,977,695,1263"/>
+<area shape="rect" id="Node000002" href="$classPersonne.html" title="Classe de base représentant une personne Les attributs id, nom, prenom et date_naissance sont constan..." alt="" coords="87,221,250,527"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,539,255,628,296,724,345,822,400,913,457,983,519,1044,515,1048,453,987,396,916,340,824,291,727,250,630,217,541"/>
+<area shape="rect" id="Node000006" href="$classMedecin.html" title="Classe représentant un médecin du système de gestion médical." alt="" coords="411,589,575,915"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="260,536,281,564,345,630,412,688,409,692,342,634,277,567,256,539"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="267,5,329,71"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="268,51,233,69,217,81,204,96,196,114,189,140,179,205,174,205,184,139,191,113,200,93,213,77,230,64,265,47"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="299,71,294,170,292,303,297,433,303,486,313,526,329,563,351,598,401,662,397,666,346,602,325,565,307,528,298,487,291,433,287,303,289,170,293,71"/>
+<area shape="rect" id="Node000009" href="$classClinique.html" title="Classe représentant une clinique médicale." alt="" coords="599,619,843,885"/>
+<area shape="poly" id="edge11_Node000009_Node000003" title=" " alt="" coords="330,41,458,63,634,100,723,125,803,153,867,184,891,202,908,220,934,259,949,296,956,332,956,367,950,403,939,441,908,528,843,608,839,604,904,525,934,440,945,402,951,367,951,332,944,298,929,262,904,223,887,206,864,189,801,158,721,130,633,105,457,68,329,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,100,71"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="50,71,47,130,50,164,57,197,82,254,77,256,51,198,44,165,42,131,45,71"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="867,719,993,785"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="923,786,898,849,879,884,857,916,824,955,786,992,709,1054,706,1050,783,988,820,952,853,913,875,881,893,846,918,784"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="545,914,560,961,555,962,540,916"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="593,341,726,407"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="648,408,578,566,574,575,569,573,573,564,643,406"/>
+<area shape="poly" id="edge13_Node000009_Node000007" title=" " alt="" coords="667,406,699,603,694,604,662,407"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="427,341,569,407"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="500,407,498,573,493,573,495,407"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="682,886,658,962,653,961,677,884"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="751,341,893,407"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="816,407,763,604,758,603,811,406"/>
+</map>

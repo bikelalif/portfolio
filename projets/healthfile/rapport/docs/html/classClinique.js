@@ -1,0 +1,28 @@
+var classClinique =
+[
+    [ "Clinique", "classClinique.html#a9efe33886da477da0765390ed512d086", null ],
+    [ "ajouterMedecin", "classClinique.html#ad8279cd75dc05944343029ae74635b77", null ],
+    [ "getAdresse", "classClinique.html#a4af45a5c035bc4a846575c3b2fc13fa7", null ],
+    [ "getId", "classClinique.html#a3edf7fb8f970222ff7f42f77217786aa", null ],
+    [ "getMedecins", "classClinique.html#a937fab2149982f553e5b6be0f126cdb3", null ],
+    [ "getNom", "classClinique.html#a052b63badbc9a236319791968ef89fbc", null ],
+    [ "getNombreMedecins", "classClinique.html#a8932cf6d41320cde7498ebd1ba54628c", null ],
+    [ "getNombrePatientsHospitalises", "classClinique.html#ad52eb8da839778a3abd3dfbe148cbab5", null ],
+    [ "getPatients", "classClinique.html#ab5f84846b240d9343aad964e5c90fc9e", null ],
+    [ "getTelephone", "classClinique.html#ac67e829d1a7682ef7ae48ce205d9fbd3", null ],
+    [ "hospitaliserPatient", "classClinique.html#a6833c7083673f803ee7b076fb6ea9736", null ],
+    [ "medecinTravailleIci", "classClinique.html#ad702d3d218fc80b334e5d8599f47c046", null ],
+    [ "patientEstHospitalise", "classClinique.html#a1328b9a2d529deb4142177be1f788f3f", null ],
+    [ "retirerMedecin", "classClinique.html#a4e2a5d3f3277caedaec4c71cd80bea0d", null ],
+    [ "setAdresse", "classClinique.html#a34c391283b0f0b485b9b4e76c29e9c14", null ],
+    [ "setNom", "classClinique.html#ab06a98cbd62ccf44e2b9dc68f9821772", null ],
+    [ "setTelephone", "classClinique.html#accf136c81472283789ba908e49a7159b", null ],
+    [ "sortirPatient", "classClinique.html#a964025e972412ec7c278a6a082cf4704", null ],
+    [ "toString", "classClinique.html#a8777eea7beb5a13e4d9cf14d55a502e8", null ],
+    [ "adresse", "classClinique.html#adba078ac1f6723d3a73335a0cf8847ad", null ],
+    [ "id", "classClinique.html#a98ba66790c08470981f0c556fafc11f0", null ],
+    [ "medecins", "classClinique.html#ac3281d32484b269696bcc827c1787176", null ],
+    [ "nom", "classClinique.html#abb7ed03fa0df2c93da74c4e8ced593d9", null ],
+    [ "patients", "classClinique.html#aa92a79f2387affbf00e80aa4706b6c4a", null ],
+    [ "telephone", "classClinique.html#aece42f4533cb2d33998d3b3f42a3f5f2", null ]
+];

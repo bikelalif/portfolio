@@ -1,0 +1,15 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="Node000001" title="Fenêtre principale de l&#39;application de gestion médicale." alt="" coords="321,133,517,439"/>
+<area shape="rect" id="Node000002" href="$classQMainWindow.html" title=" " alt="" coords="5,5,113,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,76,323,216,320,220,115,81"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="138,5,247,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,69,312,164,308,168,220,73"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="271,5,405,71"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="351,70,366,116,361,118,346,72"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="429,5,572,71"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="493,72,477,118,472,116,488,70"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="597,5,738,71"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="637,73,531,178,527,174,634,69"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="763,5,889,71"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="775,73,533,219,530,215,772,69"/>
+</map>

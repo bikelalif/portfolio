@@ -1,0 +1,7 @@
+<map id="Personne" name="Personne">
+<area shape="rect" id="Node000001" title="Classe de base représentant une personne Les attributs id, nom, prenom et date_naissance sont constan..." alt="" coords="9,221,171,527"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,68,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="37,71,36,130,41,197,42,205,37,206,35,198,30,130,32,71"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,5,192,71"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,71,120,206,115,205,137,70"/>
+</map>

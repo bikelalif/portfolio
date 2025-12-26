@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SGM - Système de Gestion Médicale:  Fichier source de src/allergie.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="healthfile.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">SGM - Système de Gestion Médicale<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Application de gestion de fiches patients, médecins et cliniques</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('allergie_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">allergie.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="allergie_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="allergie_8h.html">allergie.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="foldopen" id="foldopen00003" data-start="{" data-end="}">
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="classAllergie.html#a4bea375cd578f4ab4c0108341cdd1c86">    3</a></span><a class="code hl_function" href="classAllergie.html#a4bea375cd578f4ab4c0108341cdd1c86">Allergie::Allergie</a>(<span class="keyword">const</span> QString&amp; nom, <span class="keyword">const</span> QString&amp; description)</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    : nom(nom), description(description){</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>}</div>
+</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="}">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classAllergie.html#a628b03a6fe837fa2e5b333b0e59971be">    7</a></span>QString <a class="code hl_function" href="classAllergie.html#a628b03a6fe837fa2e5b333b0e59971be">Allergie::getNom</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classAllergie.html#abfac73463402d62b4e0f8ffebe44c5ff">nom</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
+</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classAllergie.html#a025d3d0f3509473dbf14895c3dbb705a">   11</a></span>QString <a class="code hl_function" href="classAllergie.html#a025d3d0f3509473dbf14895c3dbb705a">Allergie::getDescription</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classAllergie.html#ab5263bec01b5bf9e11c260a984b20006">description</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>}</div>
+</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classAllergie.html#a877014416dbc822e3f4aff8f20e215b9">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classAllergie.html#a877014416dbc822e3f4aff8f20e215b9">Allergie::setNom</a>(<span class="keyword">const</span> QString&amp; t_nom) {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_variable" href="classAllergie.html#abfac73463402d62b4e0f8ffebe44c5ff">nom</a> = t_nom;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classAllergie.html#ab702cd5b192f993ba53c81ee7669dea2">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classAllergie.html#ab702cd5b192f993ba53c81ee7669dea2">Allergie::setDescription</a>(<span class="keyword">const</span> QString&amp; t_description) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_variable" href="classAllergie.html#ab5263bec01b5bf9e11c260a984b20006">description</a> = t_description;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classAllergie.html#a38e4e11da8735e2a61b848d8c14aec9e">   23</a></span>QString <a class="code hl_function" href="classAllergie.html#a38e4e11da8735e2a61b848d8c14aec9e">Allergie::to_String</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> QString(<span class="stringliteral">&quot;Allergie: %1 - %2&quot;</span>).arg(<a class="code hl_variable" href="classAllergie.html#abfac73463402d62b4e0f8ffebe44c5ff">nom</a>).arg(<a class="code hl_variable" href="classAllergie.html#ab5263bec01b5bf9e11c260a984b20006">description</a>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+</div>
+<div class="ttc" id="aallergie_8h_html"><div class="ttname"><a href="allergie_8h.html">allergie.h</a></div></div>
+<div class="ttc" id="aclassAllergie_html_a025d3d0f3509473dbf14895c3dbb705a"><div class="ttname"><a href="classAllergie.html#a025d3d0f3509473dbf14895c3dbb705a">Allergie::getDescription</a></div><div class="ttdeci">QString getDescription() const</div><div class="ttdef"><b>Definition</b> <a href="allergie_8cpp_source.html#l00011">allergie.cpp:11</a></div></div>
+<div class="ttc" id="aclassAllergie_html_a38e4e11da8735e2a61b848d8c14aec9e"><div class="ttname"><a href="classAllergie.html#a38e4e11da8735e2a61b848d8c14aec9e">Allergie::to_String</a></div><div class="ttdeci">QString to_String() const</div><div class="ttdef"><b>Definition</b> <a href="allergie_8cpp_source.html#l00023">allergie.cpp:23</a></div></div>
+<div class="ttc" id="aclassAllergie_html_a4bea375cd578f4ab4c0108341cdd1c86"><div class="ttname"><a href="classAllergie.html#a4bea375cd578f4ab4c0108341cdd1c86">Allergie::Allergie</a></div><div class="ttdeci">Allergie(const QString &amp;nom, const QString &amp;description)</div><div class="ttdef"><b>Definition</b> <a href="allergie_8cpp_source.html#l00003">allergie.cpp:3</a></div></div>
+<div class="ttc" id="aclassAllergie_html_a628b03a6fe837fa2e5b333b0e59971be"><div class="ttname"><a href="classAllergie.html#a628b03a6fe837fa2e5b333b0e59971be">Allergie::getNom</a></div><div class="ttdeci">QString getNom() const</div><div class="ttdef"><b>Definition</b> <a href="allergie_8cpp_source.html#l00007">allergie.cpp:7</a></div></div>
+<div class="ttc" id="aclassAllergie_html_a877014416dbc822e3f4aff8f20e215b9"><div class="ttname"><a href="classAllergie.html#a877014416dbc822e3f4aff8f20e215b9">Allergie::setNom</a></div><div class="ttdeci">void setNom(const QString &amp;t_nom)</div><div class="ttdef"><b>Definition</b> <a href="allergie_8cpp_source.html#l00015">allergie.cpp:15</a></div></div>
+<div class="ttc" id="aclassAllergie_html_ab5263bec01b5bf9e11c260a984b20006"><div class="ttname"><a href="classAllergie.html#ab5263bec01b5bf9e11c260a984b20006">Allergie::description</a></div><div class="ttdeci">QString description</div><div class="ttdef"><b>Definition</b> <a href="allergie_8h_source.html#l00020">allergie.h:20</a></div></div>
+<div class="ttc" id="aclassAllergie_html_ab702cd5b192f993ba53c81ee7669dea2"><div class="ttname"><a href="classAllergie.html#ab702cd5b192f993ba53c81ee7669dea2">Allergie::setDescription</a></div><div class="ttdeci">void setDescription(const QString &amp;t_description)</div><div class="ttdef"><b>Definition</b> <a href="allergie_8cpp_source.html#l00019">allergie.cpp:19</a></div></div>
+<div class="ttc" id="aclassAllergie_html_abfac73463402d62b4e0f8ffebe44c5ff"><div class="ttname"><a href="classAllergie.html#abfac73463402d62b4e0f8ffebe44c5ff">Allergie::nom</a></div><div class="ttdeci">QString nom</div><div class="ttdef"><b>Definition</b> <a href="allergie_8h_source.html#l00019">allergie.h:19</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="allergie_8cpp.html">allergie.cpp</a></li>
+    <li class="footer">Généré le Dimanche 21 Décembre 2025 21:47:53 pour SGM - Système de Gestion Médicale par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
