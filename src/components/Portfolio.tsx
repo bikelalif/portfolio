@@ -1,6 +1,7 @@
-import { ExternalLink, Github, ArrowRight, Play } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Play, FileText } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useNavigate } from 'react-router-dom';
 
 interface PortfolioProps {
   onProjectClick: (slug: string) => void;
@@ -8,6 +9,7 @@ interface PortfolioProps {
 
 export function Portfolio({ onProjectClick }: PortfolioProps) {
   const { t, language } = useLanguage();
+  const navigate = useNavigate();
   
   const projects = [
     {
@@ -19,8 +21,9 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
       image: "/sevent_logo.png",
       tags: ["Python", "Flask", "SQLite", "HTML/CSS"],
       github: "https://github.com/bikelalif/SEvent",
-      demoUrl: "http://localhost:5002",
-      demoInfo: language === 'fr' ? "Démo locale disponible" : "Local demo available"
+      demoUrl: "/demo/sevent",
+      demoInfo: language === 'fr' ? "Démo interactive" : "Interactive demo",
+      isLocalDemo: true
     },
     {
       slug: "bilocal-gestion-bureaux",
@@ -32,7 +35,22 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
       tags: ["Java", "Maven", "Design Patterns", "UML"],
       github: "https://github.com/bikelalif/bilocal-gestion-bureaux",
       demoUrl: null,
-      demoInfo: null
+      demoInfo: null,
+      pdfUrl: "/bilocal_rapport.pdf"
+    },
+    {
+      slug: "healthfile",
+      title: "HealthFile - " + (language === 'fr' ? "Gestion de Santé" : "Health Management"),
+      description: language === 'fr'
+        ? "Application Qt/C++ de gestion de dossiers médicaux avec suivi nutrition et santé. Interface graphique moderne."
+        : "Qt/C++ medical records management application with nutrition and health tracking. Modern GUI.",
+      image: "/healthfile.png",
+      demoImage: "/healthfile_demo.png",
+      tags: ["C++", "Qt", "CMake", "GUI"],
+      github: "https://github.com/bikelalif/healthfile",
+      demoUrl: null,
+      demoInfo: language === 'fr' ? "Application desktop" : "Desktop application",
+      pdfUrl: "/healthfile_rapport.pdf"
     },
     {
       slug: "pharmaplan-gestion-planning",
@@ -131,10 +149,28 @@ export function Portfolio({ onProjectClick }: PortfolioProps) {
                   Code
                 </button>
                 
+                {/* Bouton PDF pour rapport */}
+                {project.pdfUrl && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); window.open(project.pdfUrl, '_blank'); }}
+                    className="flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    <FileText className="w-4 h-4" />
+                    {language === 'fr' ? 'Rapport' : 'Report'}
+                  </button>
+                )}
+                
                 {/* Bouton Démo */}
                 {project.demoUrl && (
                   <button
-                    onClick={(e) => { e.stopPropagation(); window.open(project.demoUrl, '_blank'); }}
+                    onClick={(e) => { 
+                      e.stopPropagation(); 
+                      if (project.isLocalDemo) {
+                        navigate(project.demoUrl);
+                      } else {
+                        window.open(project.demoUrl, '_blank');
+                      }
+                    }}
                     className="flex items-center gap-1 text-sm text-green-400 hover:text-green-300 transition-colors"
                   >
                     <Play className="w-4 h-4" />
