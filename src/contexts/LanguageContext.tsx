@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'fr' | 'en';
 
@@ -24,7 +24,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // About
     'about.title': 'À Propos',
-    'about.description': "Étudiant en 2ème année à l'ENSIIE, spécialisé en génie logiciel (architecture logicielle, méthodes formelles, sécurité). Je m'oriente vers la",
+    'about.description': "Étudiant en 2ème année (bac+4) à l'ENSIIE, spécialisé en génie logiciel (architecture logicielle, méthodes formelles, sécurité). Je m'oriente vers la",
     'about.cybersecurity': 'cybersécurité',
     'about.description2': "dès le semestre prochain avec un échange à l'Université Laval (Québec) et recherche un",
     'about.internship': 'stage dans ce domaine',
@@ -124,9 +124,9 @@ const translations: Record<Language, Record<string, string>> = {
     // Documents
     'documents.title': 'Documents',
     'documents.cv.title': 'Curriculum Vitae',
-    'documents.cv.description': 'Téléchargez mon CV complet détaillant mon parcours académique et professionnel.',
+    'documents.cv.description': 'Téléchargez mon CV.',
     'documents.coverLetter.title': 'Lettre de Motivation',
-    'documents.coverLetter.description': 'Ma lettre de motivation pour les opportunités de stage en cybersécurité.',
+    'documents.coverLetter.description': 'Ma lettre de motivation.',
     'documents.view': 'Voir',
     'documents.download': 'Télécharger',
     'documents.comingSoon': 'Bientôt disponible',
@@ -155,7 +155,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // About
     'about.title': 'About',
-    'about.description': "Second-year student at ENSIIE, specializing in software engineering (software architecture, formal methods, security). I'm transitioning to",
+    'about.description': "Second-year student (Master's level) at ENSIIE, specializing in software engineering (software architecture, formal methods, security). I'm transitioning to",
     'about.cybersecurity': 'cybersecurity',
     'about.description2': "next semester with an exchange at Université Laval (Quebec) and seeking an",
     'about.internship': 'internship in this field',
@@ -255,9 +255,9 @@ const translations: Record<Language, Record<string, string>> = {
     // Documents
     'documents.title': 'Documents',
     'documents.cv.title': 'Resume',
-    'documents.cv.description': 'Download my complete resume detailing my academic and professional background.',
+    'documents.cv.description': 'Download my resume.',
     'documents.coverLetter.title': 'Cover Letter',
-    'documents.coverLetter.description': 'My cover letter for cybersecurity internship opportunities.',
+    'documents.coverLetter.description': 'My cover letter.',
     'documents.view': 'View',
     'documents.download': 'Download',
     'documents.comingSoon': 'Coming Soon',
@@ -276,7 +276,21 @@ const translations: Record<Language, Record<string, string>> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('fr');
+  const [language, setLanguage] = useState<Language>(() => {
+    // Détecter la langue depuis l'URL au chargement
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    return (langParam === 'en' || langParam === 'fr') ? langParam : 'fr';
+  });
+
+  useEffect(() => {
+    // Écouter les changements d'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam === 'en' || langParam === 'fr') {
+      setLanguage(langParam);
+    }
+  }, []);
 
   const t = (key: string): string => {
     return translations[language][key] || key;

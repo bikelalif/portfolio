@@ -10,6 +10,7 @@ import { Documents } from './components/Documents';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ProjectPage } from './components/ProjectPage';
+import { SeventDemo } from './components/SeventDemo';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { LanguageSwitch } from './components/LanguageSwitch';
 
@@ -51,6 +52,26 @@ function ProjectPageWrapper() {
   );
 }
 
+function SeventDemoPage() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <LanguageSwitch />
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <button
+          onClick={() => navigate('/')}
+          className="mb-6 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+        >
+          ← Retour
+        </button>
+        <SeventDemo />
+      </div>
+      <Footer />
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <LanguageProvider>
@@ -58,6 +79,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projet/:slug" element={<ProjectPageWrapper />} />
+          <Route path="/demo/sevent" element={<SeventDemoPage />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
